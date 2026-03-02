@@ -1,0 +1,2786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AfriCare Santé — Plateforme IA Médicale Panafricaine</title>
+<meta name="description" content="AfriCare Santé : première plateforme d'intelligence artificielle médicale d'Afrique francophone. Formation certifiée, triage IA, télémédecine. Maroua, Cameroun.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23006649'/><path d='M50 22 L50 78 M22 50 L78 50' stroke='%23ffffff' stroke-width='13' stroke-linecap='round'/><circle cx='50' cy='50' r='16' fill='none' stroke='%23fbbf24' stroke-width='5'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   AFRICARE SANTÉ V4 — PANAFRICAIN
+   Design: Clarté Médicale + Chaleur Africaine
+   Lisible pour tous âges — Contraste maximal
+═══════════════════════════════════════ */
+:root {
+  --green:     #006649;
+  --green-mid: #008a62;
+  --green-lt:  #00b87a;
+  --green-pale:#e6f7f0;
+  --green-soft:#f0faf5;
+  --gold:      #f59e0b;
+  --gold-lt:   #fef3c7;
+  --gold-dark: #b45309;
+  --red:       #dc2626;
+  --red-lt:    #fef2f2;
+  --blue:      #1d4ed8;
+  --blue-lt:   #eff6ff;
+  --white:     #ffffff;
+  --ink:       #0f1f17;
+  --ink2:      #1e3a2a;
+  --text:      #2d4a3a;
+  --muted:     #5a7a6a;
+  --border:    #d1e8dd;
+  --bg:        #f8fdf9;
+  --shadow:    0 2px 16px rgba(0,102,73,0.10);
+  --shadow-lg: 0 8px 40px rgba(0,102,73,0.15);
+  --f-head:    'Fraunces', serif;
+  --f-body:    'Plus Jakarta Sans', sans-serif;
+  --f-mono:    'JetBrains Mono', monospace;
+  --nav-h:     72px;
+  --r:         16px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:17px;}
+body{font-family:var(--f-body);background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;}
+img{max-width:100%;display:block;}
+button{cursor:pointer;font-family:var(--f-body);}
+a{color:inherit;text-decoration:none;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#f0faf5;}
+::-webkit-scrollbar-thumb{background:var(--green-mid);border-radius:3px;}
+
+/* ══════════════ NAV ══════════════ */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(255,255,255,0.98);border-bottom:2px solid var(--border);box-shadow:0 2px 20px rgba(0,102,73,0.08);z-index:1000;display:flex;align-items:center;padding:0 2rem;}
+.nav-inner{width:100%;max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:1rem;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;cursor:pointer;}
+.nav-logo svg{width:44px;height:44px;}
+.nav-brand{display:flex;flex-direction:column;line-height:1.1;}
+.nav-brand strong{font-family:var(--f-head);font-size:1.2rem;font-weight:700;color:var(--ink);}
+.nav-brand strong em{font-style:normal;color:var(--green);}
+.nav-brand span{font-size:0.65rem;color:var(--green-mid);font-family:var(--f-mono);letter-spacing:0.05em;}
+.nav-links{display:flex;align-items:center;gap:0.25rem;margin-left:auto;}
+.nav-links button{background:none;border:none;padding:0.5rem 0.85rem;border-radius:10px;font-size:0.88rem;font-weight:600;color:var(--text);transition:all 0.2s;}
+.nav-links button:hover,.nav-links button.active{background:var(--green-pale);color:var(--green);}
+.nav-cta{display:flex;gap:0.5rem;margin-left:0.5rem;}
+.btn-login{background:none;border:2px solid var(--green);border-radius:10px;padding:0.5rem 1.1rem;font-size:0.88rem;font-weight:700;color:var(--green)!important;transition:all 0.2s;}
+.btn-login:hover{background:var(--green-pale);}
+.btn-signup{background:var(--green);border:2px solid var(--green);border-radius:10px;padding:0.5rem 1.1rem;font-size:0.88rem;font-weight:700;color:#fff!important;transition:all 0.2s;}
+.btn-signup:hover{background:var(--green-mid);}
+.btn-ai-nav{background:linear-gradient(135deg,var(--green),var(--green-lt));border:none;border-radius:10px;padding:0.5rem 1.1rem;font-size:0.88rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s;position:relative;}
+.btn-ai-nav::before{content:'';width:7px;height:7px;background:#7eefd8;border-radius:50%;animation:pulse 1.5s infinite;}
+.btn-ai-nav:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,102,73,0.3);}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
+
+/* ══════════════ SECTIONS ══════════════ */
+section{display:none;padding-top:var(--nav-h);min-height:100vh;}
+section.active{display:block !important;}
+
+/* ══════════════ HERO ══════════════ */
+.hero{background:linear-gradient(150deg,#002d1e 0%,#004d35 40%,#006649 75%,#008a62 100%);padding:5rem 2rem 4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(0,184,122,0.12) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(245,158,11,0.08) 0%,transparent 40%);pointer-events:none;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.35);border-radius:50px;padding:0.4rem 1rem;font-size:0.8rem;font-weight:700;color:#fcd34d;margin-bottom:1.5rem;font-family:var(--f-mono);}
+.hero h1{font-family:var(--f-head);font-size:3.2rem;font-weight:700;color:#ffffff;line-height:1.15;margin-bottom:1.2rem;}
+.hero h1 em{font-style:normal;color:#6ee7b7;}
+.hero h1 .gold{color:#fcd34d;}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.78);margin-bottom:2rem;line-height:1.7;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.btn-hero-main{background:#ffffff;border:none;border-radius:14px;padding:1rem 2rem;font-size:1rem;font-weight:800;color:var(--green);display:flex;align-items:center;gap:0.5rem;transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
+.btn-hero-main:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.25);}
+.btn-hero-sec{background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);border-radius:14px;padding:1rem 2rem;font-size:1rem;font-weight:700;color:#ffffff;transition:all 0.2s;}
+.btn-hero-sec:hover{background:rgba(255,255,255,0.18);}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.hero-stat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:1rem;text-align:center;}
+.hero-stat .val{font-family:var(--f-head);font-size:1.8rem;font-weight:700;color:#ffffff;}
+.hero-stat .lbl{font-size:0.72rem;color:rgba(255,255,255,0.65);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}
+/* Hero right - Africa map + AI */
+.hero-right{display:flex;flex-direction:column;gap:1.5rem;}
+.africa-map-wrap{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:1.5rem;text-align:center;}
+.africa-map-title{font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:var(--f-mono);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em;}
+.africa-svg{width:100%;max-width:280px;margin:0 auto;}
+.country-dot{fill:#6ee7b7;opacity:0.8;animation:dot-pulse 2s infinite;}
+.country-dot:nth-child(2){animation-delay:0.4s;}
+.country-dot:nth-child(3){animation-delay:0.8s;}
+.country-dot:nth-child(4){animation-delay:1.2s;}
+.country-dot:nth-child(5){animation-delay:1.6s;}
+@keyframes dot-pulse{0%,100%{r:5;opacity:0.8;}50%{r:8;opacity:1;}}
+.hero-ai-preview{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:1.2rem;}
+.ai-preview-title{font-size:0.78rem;color:rgba(255,255,255,0.55);font-family:var(--f-mono);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.4rem;}
+.ai-preview-title::before{content:'';width:6px;height:6px;background:#6ee7b7;border-radius:50%;animation:pulse 1.5s infinite;}
+.ai-msg{background:rgba(0,0,0,0.2);border-radius:12px;padding:0.8rem 1rem;font-size:0.82rem;color:rgba(255,255,255,0.85);margin-bottom:0.5rem;}
+.ai-msg strong{color:#6ee7b7;}
+.ai-tags{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.ai-tag{background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:50px;padding:0.3rem 0.7rem;font-size:0.72rem;color:#fcd34d;cursor:pointer;transition:all 0.2s;}
+.ai-tag:hover{background:rgba(245,158,11,0.25);}
+
+/* ══════════════ PAGE STRUCTURE ══════════════ */
+.page-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem;}
+.page-head{text-align:center;margin-bottom:3rem;}
+.page-head .label{display:inline-block;background:var(--green-pale);color:var(--green);font-size:0.78rem;font-weight:700;font-family:var(--f-mono);padding:0.35rem 1rem;border-radius:50px;margin-bottom:1rem;letter-spacing:0.08em;text-transform:uppercase;}
+.page-head h2{font-family:var(--f-head);font-size:2.4rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:0.8rem;}
+.page-head h2 em{font-style:normal;color:var(--green);}
+.page-head p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto;}
+
+/* ══════════════ BUTTONS ══════════════ */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;border:none;border-radius:12px;padding:0.8rem 1.6rem;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:var(--f-body);}
+.btn-primary{background:var(--green);color:#fff;}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px);box-shadow:var(--shadow);}
+.btn-secondary{background:var(--green-pale);color:var(--green);border:2px solid var(--border);}
+.btn-secondary:hover{background:#d0f0e4;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:#d97706;}
+.btn-danger{background:var(--red);color:#fff;}
+.btn-sm{padding:0.5rem 1rem;font-size:0.85rem;}
+.btn-lg{padding:1rem 2rem;font-size:1rem;}
+
+/* ══════════════ CARDS ══════════════ */
+.card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow);transition:all 0.2s;}
+.card:hover{box-shadow:var(--shadow-lg);border-color:var(--green-mid);transform:translateY(-2px);}
+
+/* ══════════════ FORMS ══════════════ */
+.f-group{margin-bottom:1.2rem;}
+.f-group label{display:block;font-size:0.88rem;font-weight:700;color:var(--ink2);margin-bottom:0.4rem;}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:0.85rem 1rem;border:2px solid var(--border);border-radius:12px;font-size:1rem;font-family:var(--f-body);color:var(--ink);background:#fff;transition:border-color 0.2s;outline:none;}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--green);}
+.f-group textarea{resize:vertical;min-height:120px;}
+.f-group input::placeholder,.f-group textarea::placeholder{color:#a0b8ac;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+/* ══════════════ LOGIN/SIGNUP ══════════════ */
+#login,#signup{background:linear-gradient(135deg,#f0faf5,#ffffff);}
+.auth-wrap{max-width:480px;margin:0 auto;padding:4rem 2rem;}
+.auth-card{background:#fff;border:2px solid var(--border);border-radius:24px;padding:2.5rem;box-shadow:var(--shadow-lg);}
+.auth-logo{text-align:center;margin-bottom:2rem;}
+.auth-logo svg{width:56px;height:56px;margin:0 auto 0.75rem;}
+.auth-logo h2{font-family:var(--f-head);font-size:1.6rem;font-weight:700;color:var(--ink);}
+.auth-logo p{font-size:0.9rem;color:var(--muted);}
+.auth-switch{text-align:center;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);}
+.auth-switch button{background:none;border:none;color:var(--green);font-weight:700;font-size:0.9rem;cursor:pointer;text-decoration:underline;}
+.auth-or{text-align:center;color:var(--muted);font-size:0.85rem;margin:1rem 0;position:relative;}
+.auth-or::before,.auth-or::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--border);}
+.auth-or::before{left:0;}
+.auth-or::after{right:0;}
+.checkbox-row{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:1rem;}
+.checkbox-row input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:var(--green);flex-shrink:0;}
+.checkbox-row label{font-size:0.85rem;color:var(--text);}
+
+/* ══════════════ DASHBOARD ══════════════ */
+.dash-header{background:linear-gradient(135deg,var(--green),var(--green-mid));padding:2rem;border-radius:20px;color:#fff;margin-bottom:2rem;display:flex;justify-content:space-between;align-items:center;}
+.dash-welcome h2{font-family:var(--f-head);font-size:1.8rem;font-weight:700;}
+.dash-welcome p{opacity:0.82;font-size:0.95rem;}
+.dash-badge{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:0.4rem 1rem;font-size:0.8rem;font-weight:700;}
+.dash-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;}
+.dash-main{display:flex;flex-direction:column;gap:1.5rem;}
+.dash-side{display:flex;flex-direction:column;gap:1.5rem;}
+.prog-bar{background:var(--border);border-radius:10px;height:10px;overflow:hidden;margin-top:0.5rem;}
+.prog-fill{background:linear-gradient(90deg,var(--green),var(--green-lt));height:100%;border-radius:10px;transition:width 0.5s ease;}
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.module-card{background:#fff;border:2px solid var(--border);border-radius:var(--r);padding:1.2rem;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.module-card:hover{border-color:var(--green-mid);box-shadow:var(--shadow);}
+.module-card.locked{opacity:0.65;cursor:not-allowed;}
+.module-badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:50px;margin-bottom:0.6rem;}
+.badge-free{background:var(--green-pale);color:var(--green);}
+.badge-pro{background:var(--gold-lt);color:var(--gold-dark);}
+.badge-soon{background:#f3f4f6;color:#6b7280;}
+.module-card h3{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.module-card p{font-size:0.8rem;color:var(--muted);}
+.module-icon{font-size:2rem;margin-bottom:0.5rem;}
+.qa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;}
+.qa-btn{background:#fff;border:2px solid var(--border);border-radius:12px;padding:1rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;transition:all 0.2s;text-align:left;}
+.qa-btn:hover{border-color:var(--green-mid);background:var(--green-soft);}
+.qa-icon{font-size:1.5rem;flex-shrink:0;}
+.qa-label{font-size:0.88rem;font-weight:700;color:var(--ink);}
+.qa-sub{font-size:0.75rem;color:var(--muted);}
+.widget{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:1.2rem;}
+.widget-title{font-size:0.85rem;font-weight:700;color:var(--ink);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.4rem;text-transform:uppercase;letter-spacing:0.05em;}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border);}
+.stat-row:last-child{border-bottom:none;}
+.stat-label{font-size:0.85rem;color:var(--muted);}
+.stat-val{font-size:0.95rem;font-weight:700;color:var(--ink);}
+.upgrade-banner{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid rgba(245,158,11,0.3);border-radius:var(--r);padding:1.2rem;text-align:center;}
+.upgrade-banner h4{font-size:1rem;font-weight:700;color:var(--gold-dark);margin-bottom:0.3rem;}
+.upgrade-banner p{font-size:0.82rem;color:#92400e;margin-bottom:0.8rem;}
+
+/* ══════════════ AI TRIAGE ══════════════ */
+.triage-wrap{max-width:900px;margin:0 auto;}
+.triage-form{background:#fff;border:2px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;}
+.severity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.2rem;}
+.sev-opt{border:2px solid var(--border);border-radius:12px;padding:1rem;text-align:center;cursor:pointer;transition:all 0.2s;}
+.sev-opt:hover,.sev-opt.selected{border-color:var(--green);background:var(--green-pale);}
+.sev-opt.urgent{border-color:var(--red);}
+.sev-opt.urgent:hover,.sev-opt.urgent.selected{background:var(--red-lt);border-color:var(--red);}
+.sev-opt .sev-icon{font-size:1.8rem;margin-bottom:0.3rem;}
+.sev-opt .sev-label{font-size:0.82rem;font-weight:700;color:var(--ink);}
+.triage-result{background:#fff;border:2px solid var(--border);border-radius:20px;padding:2rem;display:none;}
+.triage-result.show{display:block;}
+.result-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--border);}
+.result-badge{padding:0.5rem 1.2rem;border-radius:50px;font-weight:800;font-size:0.9rem;}
+.badge-urgent{background:var(--red-lt);color:var(--red);border:2px solid var(--red);}
+.badge-semi{background:#fff7ed;color:#c2410c;border:2px solid #fed7aa;}
+.badge-normal{background:var(--green-pale);color:var(--green);border:2px solid var(--border);}
+.result-section{margin-bottom:1.2rem;}
+.result-section h4{font-size:0.88rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
+.result-section ul{padding-left:1.2rem;}
+.result-section li{font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;}
+.result-source{background:var(--green-pale);border-left:4px solid var(--green);padding:0.75rem 1rem;border-radius:0 10px 10px 0;font-size:0.82rem;color:var(--green);font-family:var(--f-mono);}
+
+/* ══════════════ ORDONNANCE ══════════════ */
+.ordo-wrap{max-width:900px;margin:0 auto;}
+.ordo-form{background:#fff;border:2px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;}
+.ordo-preview{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:2.5rem;display:none;font-family:var(--f-body);}
+.ordo-preview.show{display:block;}
+.ordo-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px double var(--ink);padding-bottom:1rem;margin-bottom:1.5rem;}
+.ordo-logo-text{font-family:var(--f-head);font-size:1.2rem;font-weight:700;color:var(--green);}
+.ordo-logo-sub{font-size:0.75rem;color:var(--muted);}
+.ordo-doc-info{text-align:right;font-size:0.82rem;color:var(--text);}
+.ordo-title{text-align:center;font-size:1.3rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem;}
+.ordo-patient{background:var(--green-soft);border-radius:10px;padding:1rem;margin-bottom:1.5rem;font-size:0.9rem;}
+.ordo-patient strong{color:var(--ink);}
+.ordo-rx{margin-bottom:1.5rem;}
+.ordo-rx h4{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.4rem;}
+.rx-item{border:1px solid var(--border);border-radius:10px;padding:0.8rem 1rem;margin-bottom:0.5rem;background:#fafafa;}
+.rx-num{font-family:var(--f-mono);font-size:0.82rem;color:var(--green);font-weight:700;}
+.rx-med{font-weight:700;color:var(--ink);font-size:0.95rem;}
+.rx-dose{font-size:0.85rem;color:var(--text);}
+.rx-dur{font-size:0.82rem;color:var(--muted);}
+.ordo-footer{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);}
+.ordo-sign{text-align:center;}
+.sign-line{border-top:1px solid var(--ink);margin-top:2rem;padding-top:0.3rem;font-size:0.8rem;color:var(--muted);}
+.ordo-warning{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:0.75rem;font-size:0.78rem;color:#92400e;margin-top:1rem;line-height:1.4;}
+.print-btn-row{display:flex;gap:1rem;margin-top:1rem;justify-content:center;}
+@media print{
+  nav,footer,.print-btn-row,.ordo-form,.triage-form,#ai-modal,.fab{display:none!important;}
+  body{background:#fff;}
+  .ordo-preview,.cert-card{box-shadow:none!important;border:2px solid #000!important;}
+  section{padding-top:0!important;display:block!important;}
+}
+
+/* ══════════════ QUIZ ══════════════ */
+.quiz-wrap{max-width:700px;margin:0 auto;}
+.quiz-prog-bar{background:var(--border);border-radius:10px;height:8px;margin-bottom:2rem;overflow:hidden;}
+.quiz-prog-fill{background:linear-gradient(90deg,var(--green),var(--green-lt));height:100%;border-radius:10px;transition:width 0.3s;}
+.q-block{background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1rem;}
+.q-num{font-size:0.78rem;font-weight:700;color:var(--green);font-family:var(--f-mono);margin-bottom:0.3rem;text-transform:uppercase;}
+.q-text{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.q-source{font-size:0.75rem;color:var(--muted);font-style:italic;margin-bottom:0.8rem;}
+.q-options{display:flex;flex-direction:column;gap:0.4rem;}
+.q-option{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 1rem;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.9rem;color:var(--text);transition:all 0.2s;}
+.q-option:hover{border-color:var(--green-mid);background:var(--green-soft);}
+.q-option input{accent-color:var(--green);}
+
+/* ══════════════ CERTIFICAT ══════════════ */
+.cert-wrap{max-width:800px;margin:0 auto;padding:3rem 2rem;}
+.cert-card{background:linear-gradient(145deg,#fff,#f0fdf8);border:3px solid var(--green);border-radius:24px;padding:3rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,102,73,0.15);}
+.cert-card::before{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,184,122,0.08),transparent 70%);border-radius:50%;}
+.cert-card::after{content:'';position:absolute;bottom:-30px;left:-30px;width:150px;height:150px;background:radial-gradient(circle,rgba(245,158,11,0.06),transparent 70%);border-radius:50%;}
+.cert-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;}
+.cert-logo-wrap{display:flex;align-items:center;gap:0.6rem;}
+.cert-logo-wrap svg{width:40px;height:40px;}
+.cert-logo-wrap strong{font-family:var(--f-head);font-size:1rem;color:var(--ink);}
+.cert-badge-oms{background:var(--green-pale);border:1px solid var(--green);border-radius:8px;padding:0.3rem 0.7rem;font-size:0.72rem;font-weight:700;color:var(--green);font-family:var(--f-mono);}
+.cert-divider{width:60px;height:4px;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:2px;margin:1.2rem auto;}
+.cert-title{font-size:0.85rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;font-family:var(--f-mono);}
+.cert-issued{font-size:0.85rem;color:var(--muted);margin-bottom:0.3rem;}
+.cert-name{font-family:var(--f-head);font-size:2.4rem;font-weight:700;color:var(--ink);margin:0.3rem 0;}
+.cert-text{font-size:1rem;color:var(--text);margin-bottom:0.5rem;}
+.cert-module{font-family:var(--f-head);font-size:1.4rem;font-weight:700;color:var(--green);margin-bottom:0.3rem;}
+.cert-score-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold-lt);border:2px solid var(--gold);border-radius:50px;padding:0.5rem 1.4rem;font-size:1rem;font-weight:800;color:var(--gold-dark);margin:1rem 0;}
+.cert-footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:2px solid var(--border);}
+.cert-footer-col{text-align:center;}
+.cert-footer-col .lbl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.25rem;}
+.cert-footer-col .val{font-size:0.85rem;font-weight:700;color:var(--ink);}
+.cert-qr{width:70px;height:70px;background:var(--ink);border-radius:8px;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.cert-qr-inner{position:absolute;inset:6px;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;}
+.cert-qr-inner span{background:#fff;border-radius:1px;}
+.cert-ref{font-family:var(--f-mono);font-size:0.68rem;color:var(--muted);margin-top:0.25rem;}
+.cert-actions{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem;}
+
+/* ══════════════ BLOG ══════════════ */
+.blog-layout{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:start;}
+.article-grid{display:grid;gap:1.5rem;}
+.article-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all 0.2s;cursor:pointer;}
+.article-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+.article-banner{height:130px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.article-body{padding:1.2rem;}
+.article-cat{display:inline-block;background:var(--green-pale);color:var(--green);font-size:0.72rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:50px;margin-bottom:0.5rem;}
+.article-card h3{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;line-height:1.3;}
+.article-card p{font-size:0.85rem;color:var(--muted);line-height:1.5;}
+.article-meta{display:flex;gap:1rem;font-size:0.75rem;color:var(--muted);margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border);}
+.blog-sidebar{display:flex;flex-direction:column;gap:1rem;}
+.search-inp{width:100%;padding:0.75rem 1rem;border:2px solid var(--border);border-radius:12px;font-size:0.95rem;font-family:var(--f-body);color:var(--ink);outline:none;transition:border-color 0.2s;}
+.search-inp:focus{border-color:var(--green);}
+.cat-list{display:flex;flex-direction:column;gap:0.25rem;}
+.cat-row{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0.8rem;border-radius:10px;cursor:pointer;font-size:0.88rem;font-weight:600;color:var(--text);transition:all 0.2s;}
+.cat-row:hover{background:var(--green-pale);color:var(--green);}
+.cat-row.active{background:var(--green-pale);color:var(--green);}
+.cat-count{background:var(--border);border-radius:50px;padding:0.1rem 0.5rem;font-size:0.72rem;font-weight:700;color:var(--muted);}
+.contact-block{background:linear-gradient(135deg,var(--green),var(--green-mid));border-radius:var(--r);padding:1.2rem;color:#fff;text-align:center;}
+.contact-block h4{font-family:var(--f-head);font-size:1rem;margin-bottom:0.4rem;}
+.contact-block p{font-size:0.8rem;opacity:0.85;margin-bottom:0.8rem;}
+.wa-btn-blog{display:inline-flex;align-items:center;gap:0.4rem;background:#fff;color:var(--green);border-radius:50px;padding:0.45rem 1rem;font-size:0.82rem;font-weight:700;transition:all 0.2s;}
+.wa-btn-blog:hover{background:var(--green-pale);}
+.email-block{background:var(--blue-lt);border:1px solid #bfdbfe;border-radius:var(--r);padding:1rem;text-align:center;}
+.email-block h4{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:0.3rem;}
+.email-block a{display:block;font-size:0.82rem;color:var(--blue);font-weight:600;word-break:break-all;}
+
+/* ══════════════ ABOUT ══════════════ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.founder-card{background:linear-gradient(145deg,var(--green-pale),#fff);border:2px solid var(--border);border-radius:20px;padding:2rem;text-align:center;}
+.founder-av{width:90px;height:90px;background:linear-gradient(135deg,var(--green),var(--green-mid));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 1rem;border:4px solid #fff;box-shadow:0 4px 20px rgba(0,102,73,0.2);}
+.founder-name{font-family:var(--f-head);font-size:1.4rem;font-weight:700;color:var(--ink);}
+.founder-role{font-size:0.85rem;color:var(--muted);margin-bottom:1rem;}
+.founder-bio{font-size:0.9rem;color:var(--text);line-height:1.7;text-align:left;}
+.info-blocks{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.info-block{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem;}
+.info-icon{font-size:1.8rem;margin-bottom:0.5rem;}
+.info-block h4{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.info-block p{font-size:0.82rem;color:var(--muted);}
+.partners-wrap{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;margin-top:1.5rem;}
+.partners-wrap h4{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:1rem;text-align:center;}
+.partner-chips{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;}
+.partner-chip{background:var(--green-pale);border:1px solid var(--border);border-radius:50px;padding:0.35rem 0.8rem;font-size:0.78rem;font-weight:600;color:var(--text);}
+.testimonials{margin-top:2rem;}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.test-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem;}
+.quote-mark{font-size:2.5rem;color:var(--border);font-family:serif;line-height:1;margin-bottom:0.3rem;}
+.test-card p{font-size:0.85rem;color:var(--text);line-height:1.6;margin-bottom:0.75rem;font-style:italic;}
+.test-author{display:flex;align-items:center;gap:0.6rem;}
+.test-av{width:36px;height:36px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:700;color:var(--green);}
+.test-name{font-size:0.85rem;font-weight:700;color:var(--ink);}
+.test-role{font-size:0.75rem;color:var(--muted);}
+
+/* ══════════════ TARIFS ══════════════ */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:0 auto;}
+.price-card{background:#fff;border:2px solid var(--border);border-radius:20px;padding:2rem;position:relative;}
+.price-card.featured{border-color:var(--green);box-shadow:0 8px 40px rgba(0,102,73,0.12);}
+.price-card.featured::before{content:'RECOMMANDÉ';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:0.7rem;font-weight:800;padding:0.3rem 1rem;border-radius:50px;letter-spacing:0.08em;}
+.price-plan{font-size:0.8rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;}
+.price-amount{font-family:var(--f-head);font-size:2.5rem;font-weight:700;color:var(--ink);}
+.price-amount span{font-size:1rem;color:var(--muted);}
+.price-desc{font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;}
+.pricing-features{list-style:none;margin-bottom:1.5rem;}
+.pricing-features li{font-size:0.9rem;color:var(--text);padding:0.4rem 0;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid var(--border);}
+.pricing-features li:last-child{border-bottom:none;}
+.pricing-features li::before{font-size:0.8rem;flex-shrink:0;}
+.pricing-features li.yes::before{content:'✅';}
+.pricing-features li.no::before{content:'❌';opacity:0.4;}
+.pay-section{background:var(--green-pale);border:1.5px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:2rem;text-align:center;max-width:1000px;margin-left:auto;margin-right:auto;}
+.pay-section h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;}
+.pay-chips{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+.pay-chip{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:0.4rem 0.9rem;font-size:0.82rem;font-weight:700;color:var(--text);}
+
+/* ══════════════ FAQ ══════════════ */
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem;}
+.faq-item{background:#fff;border:2px solid var(--border);border-radius:14px;overflow:hidden;}
+.faq-q{padding:1.1rem 1.2rem;font-weight:700;font-size:0.95rem;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color 0.2s;}
+.faq-q:hover{color:var(--green);}
+.faq-icon{font-size:1.2rem;transition:transform 0.3s;color:var(--green);}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-item.open .faq-q{color:var(--green);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0 1.2rem;font-size:0.9rem;color:var(--text);line-height:1.7;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.2rem;}
+
+/* ══════════════ VISION ══════════════ */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3rem;}
+.kpi-box{background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;}
+.kpi-val{font-family:var(--f-head);font-size:2.2rem;font-weight:700;color:var(--green);}
+.kpi-lbl{font-size:0.8rem;color:var(--muted);font-weight:600;}
+.roadmap{display:flex;flex-direction:column;gap:0;max-width:700px;margin:0 auto;}
+.road-item{display:flex;gap:1.5rem;position:relative;}
+.road-item::before{content:'';position:absolute;left:28px;top:56px;bottom:-1rem;width:2px;background:var(--border);}
+.road-item:last-child::before{display:none;}
+.road-year{flex-shrink:0;width:56px;height:56px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:0.75rem;font-weight:700;color:#fff;text-align:center;line-height:1.1;}
+.road-content{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1rem 1.2rem;flex:1;margin-bottom:1.2rem;}
+.road-content h4{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.road-content p{font-size:0.85rem;color:var(--muted);}
+
+/* ══════════════ TELEMEDICINE ══════════════ */
+.tele-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
+.tele-spec{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem;}
+.tele-spec .t-icon{font-size:1.8rem;margin-bottom:0.5rem;}
+.tele-spec h4{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.tele-spec p{font-size:0.82rem;color:var(--muted);}
+.tele-disclaimer{background:#fff7ed;border:2px solid #fed7aa;border-radius:14px;padding:1.2rem;margin-bottom:2rem;}
+.tele-disclaimer p{font-size:0.85rem;color:#92400e;line-height:1.6;}
+.tele-disclaimer strong{color:#c2410c;}
+.tele-chat{max-width:700px;margin:0 auto;}
+
+/* ══════════════ CONTACT ══════════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:0 auto;}
+.contact-info h3{font-family:var(--f-head);font-size:1.4rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
+.contact-item{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.contact-item:last-child{border-bottom:none;}
+.contact-item .ci-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.contact-item .ci-label{font-size:0.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;}
+.contact-item .ci-val{font-size:0.95rem;font-weight:600;color:var(--ink);}
+.contact-item a{color:var(--green);}
+.map-placeholder{background:var(--green-pale);border:2px solid var(--border);border-radius:var(--r);height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-top:1rem;}
+
+/* ══════════════ AI CHAT MODAL ══════════════ */
+#ai-modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+#ai-modal.open{display:flex;}
+.modal-box{background:#fff;border-radius:24px;width:100%;max-width:620px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.2);}
+.modal-head{padding:1.2rem 1.5rem;border-bottom:2px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.modal-title{font-family:var(--f-head);font-size:1.1rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:0.5rem;}
+.modal-close{background:var(--green-pale);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--green);cursor:pointer;transition:all 0.2s;}
+.modal-close:hover{background:var(--border);}
+.chat-window{flex:1;overflow-y:auto;padding:1.2rem;display:flex;flex-direction:column;gap:0.75rem;min-height:300px;max-height:calc(90vh - 200px);}
+.msg{display:flex;flex-direction:column;max-width:85%;}
+.msg.user{align-self:flex-end;}
+.msg.ai{align-self:flex-start;}
+.msg-bubble{padding:0.8rem 1.1rem;border-radius:16px;font-size:0.92rem;line-height:1.6;}
+.ai .msg-bubble{background:var(--green-pale);border:1px solid var(--border);color:var(--ink);}
+.user .msg-bubble{background:var(--green);color:#fff;}
+.msg-bubble strong{display:block;margin-bottom:0.2rem;}
+.msg-bubble ul{padding-left:1.2rem;margin-top:0.3rem;}
+.chat-input-row{padding:1rem 1.2rem;border-top:2px solid var(--border);display:flex;gap:0.75rem;}
+.chat-input{flex:1;padding:1rem;border:2px solid var(--border);border-radius:12px;font-size:1rem;font-family:var(--f-body);outline:none;resize:none;color:var(--ink);transition:border-color 0.2s;min-height:52px;-webkit-appearance:none;}
+.chat-input:focus{border-color:var(--green);}
+.chat-send{background:var(--green);border:none;border-radius:12px;padding:0.85rem 1.2rem;color:#fff;font-size:1.1rem;cursor:pointer;transition:all 0.2s;flex-shrink:0;}
+.chat-send:hover{background:var(--green-mid);}
+.chat-send:disabled{opacity:0.5;cursor:not-allowed;}
+.typing{display:flex;gap:4px;padding:0.8rem 1rem;background:var(--green-pale);border-radius:16px;width:fit-content;}
+.typing span{width:8px;height:8px;background:var(--green-mid);border-radius:50%;animation:bounce 1.2s infinite;}
+.typing span:nth-child(2){animation-delay:0.2s;}
+.typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes bounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-8px);}}
+.modal-sugs{padding:0.75rem 1.2rem;display:flex;gap:0.4rem;flex-wrap:wrap;border-bottom:1px solid var(--border);}
+.modal-sug{background:var(--green-pale);border:1px solid var(--border);border-radius:50px;padding:0.3rem 0.75rem;font-size:0.78rem;color:var(--green);font-weight:600;cursor:pointer;transition:all 0.2s;}
+.modal-sug:hover{background:#d0f0e4;}
+
+/* ══════════════ ARTICLE MODAL ══════════════ */
+#article-modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+#article-modal.open{display:flex;}
+.art-modal-box{background:#fff;border-radius:24px;width:100%;max-width:700px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,0.2);}
+.art-modal-banner{height:120px;display:flex;align-items:center;justify-content:center;font-size:4rem;border-radius:24px 24px 0 0;}
+.art-modal-body{padding:2rem;}
+.art-modal-cat{display:inline-block;background:var(--green-pale);color:var(--green);font-size:0.75rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:50px;margin-bottom:0.75rem;}
+.art-modal-body h2{font-family:var(--f-head);font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;line-height:1.3;}
+.art-modal-meta{display:flex;gap:1rem;font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.art-modal-content p{font-size:0.95rem;color:var(--text);line-height:1.75;margin-bottom:1rem;}
+.art-modal-content h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin:1.2rem 0 0.5rem;}
+.art-modal-content ul{padding-left:1.2rem;margin-bottom:1rem;}
+.art-modal-content li{font-size:0.92rem;color:var(--text);margin-bottom:0.3rem;}
+.art-modal-content .highlight{background:var(--green-pale);border-left:4px solid var(--green);padding:0.8rem 1rem;border-radius:0 10px 10px 0;margin:1rem 0;font-size:0.9rem;color:var(--green);}
+.art-share{display:flex;gap:0.5rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);}
+
+/* ══════════════ CONTACT MODAL ══════════════ */
+#contact-modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+#contact-modal.open{display:flex;}
+
+/* ══════════════ ADMIN PANEL ══════════════ */
+#admin-panel{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:3000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+#admin-panel.open{display:flex;}
+.admin-box{background:#fff;border-radius:24px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;padding:2rem;box-shadow:0 24px 80px rgba(0,0,0,0.3);}
+.admin-title{font-family:var(--f-head);font-size:1.4rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;}
+.admin-sub{font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;}
+
+/* ══════════════ TOAST ══════════════ */
+#toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:#fff;border:2px solid var(--green);border-radius:50px;padding:0.75rem 1.5rem;font-size:0.9rem;font-weight:700;color:var(--green);box-shadow:var(--shadow-lg);z-index:5000;transition:transform 0.4s;white-space:nowrap;}
+#toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ══════════════ FAB ══════════════ */
+.fab{position:fixed;bottom:2rem;right:2rem;background:var(--gold);border:none;border-radius:50%;width:56px;height:56px;font-size:1.4rem;cursor:pointer;box-shadow:0 4px 20px rgba(245,158,11,0.4);transition:all 0.2s;z-index:900;}
+.fab:hover{transform:scale(1.1);}
+
+/* ══════════════ FOOTER ══════════════ */
+footer{background:linear-gradient(135deg,#0a2218,#0d3029);color:rgba(255,255,255,0.8);padding:3rem 2rem 2rem;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+.footer-brand .fb-name{font-family:var(--f-head);font-size:1.2rem;color:#fff;margin-bottom:0.5rem;}
+.footer-brand p{font-size:0.82rem;line-height:1.6;margin-bottom:1rem;}
+.wa-btn-footer{display:inline-flex;align-items:center;gap:0.4rem;background:#25D366;color:#fff;border-radius:50px;padding:0.45rem 1rem;font-size:0.82rem;font-weight:700;margin-bottom:0.4rem;}
+.footer-col h4{font-size:0.8rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+.footer-col ul li{font-size:0.82rem;}
+.footer-col ul li button{background:none;border:none;color:rgba(255,255,255,0.65);font-size:0.82rem;cursor:pointer;padding:0;font-family:var(--f-body);text-align:left;}
+.footer-col ul li button:hover{color:#fff;}
+.footer-col ul li a{color:rgba(255,255,255,0.65);font-size:0.82rem;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom .ft-badge{font-family:var(--f-mono);color:rgba(255,255,255,0.25);}
+
+/* ══════════════ EPIDEMIO DASHBOARD ══════════════ */
+.epi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.epi-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:1.2rem;text-align:center;}
+.epi-icon{font-size:2rem;margin-bottom:0.4rem;}
+.epi-val{font-family:var(--f-head);font-size:1.8rem;font-weight:700;color:var(--ink);}
+.epi-lbl{font-size:0.75rem;color:var(--muted);font-weight:600;}
+.epi-trend{font-size:0.75rem;font-weight:700;margin-top:0.2rem;}
+.epi-trend.up{color:var(--red);}
+.epi-trend.down{color:var(--green);}
+.epi-map{background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:2rem;}
+.epi-map h4{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
+.epi-table{width:100%;border-collapse:collapse;}
+.epi-table th{text-align:left;font-size:0.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;padding:0.5rem 0.75rem;border-bottom:2px solid var(--border);}
+.epi-table td{padding:0.6rem 0.75rem;font-size:0.88rem;color:var(--text);border-bottom:1px solid var(--border);}
+.epi-bar-wrap{display:flex;align-items:center;gap:0.5rem;}
+.epi-bar{background:var(--border);border-radius:4px;height:8px;flex:1;overflow:hidden;}
+.epi-bar-fill{background:var(--green);height:100%;border-radius:4px;}
+.epi-bar-fill.red{background:var(--red);}
+.epi-bar-fill.orange{background:var(--gold);}
+
+/* ══════════════ RESPONSIVE ══════════════ */
+@media(max-width:900px){
+  .hamburger-btn{display:flex;}
+  .btn-login,.btn-signup{display:none;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero h1{font-size:2.2rem;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+  .blog-layout{grid-template-columns:1fr;}
+  .blog-sidebar{display:none;}
+  .dash-grid{grid-template-columns:1fr;}
+  .module-grid{grid-template-columns:repeat(2,1fr);}
+  .pricing-grid{grid-template-columns:1fr;max-width:400px;}
+  .test-grid{grid-template-columns:1fr;}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);}
+  .tele-grid{grid-template-columns:repeat(2,1fr);}
+  .epi-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .f-row{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  html{font-size:15px;}
+  .nav-links{display:none;}
+  .hamburger-btn{display:flex !important;}
+  .hero h1{font-size:1.8rem;}
+  .hero-btns{flex-direction:column;}
+  .module-grid{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .info-blocks{grid-template-columns:1fr;}
+  .severity-grid{grid-template-columns:1fr;}
+  .cert-footer-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+
+/* ── UNIQUE DESIGN ENHANCEMENTS ── */
+/* Animated counter */
+@keyframes countUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.hero-stat .val { animation: countUp 0.6s ease forwards; }
+
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, var(--green), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Pulsing dot indicator */
+.online-dot { display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; margin-right: 6px; animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4);} 50%{box-shadow:0 0 0 6px rgba(34,197,94,0);} }
+
+/* Loading spinner */
+.spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 8px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* AI result styling */
+.ai-result-card { background: linear-gradient(135deg,#f0fdf9,#fff); border: 2px solid var(--green); border-radius: 16px; padding: 1.5rem; margin-top: 1rem; }
+.urgency-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.2rem; border-radius: 50px; font-weight: 800; font-size: 0.9rem; margin-bottom: 1rem; }
+.urgency-vitale { background: #fee2e2; color: #dc2626; border: 2px solid #dc2626; }
+.urgency-semi { background: #fff7ed; color: #c2410c; border: 2px solid #fb923c; }
+.urgency-normale { background: #dcfce7; color: #16a34a; border: 2px solid #22c55e; }
+.result-section-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0.8rem 0 0.3rem; }
+.result-list { padding-left: 0; list-style: none; }
+.result-list li { font-size: 0.9rem; color: var(--text); padding: 0.3rem 0; display: flex; align-items: flex-start; gap: 0.4rem; }
+.result-list li::before { content: "→"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.result-source-box { background: var(--green-pale); border-left: 4px solid var(--green); padding: 0.6rem 0.9rem; border-radius: 0 8px 8px 0; font-size: 0.8rem; color: var(--green); font-family: var(--f-mono); margin-top: 1rem; }
+
+/* Ordo beautiful styling */
+@media print {
+  nav, footer, .fab, #toast, .cert-actions, .print-btn-row, .ordo-form, .triage-form,
+  #ai-modal, #article-modal, #admin-panel, #contact-modal,
+  section:not(.active) { display: none !important; }
+  section.active { display: block !important; padding-top: 0 !important; }
+  body { background: white !important; }
+  .ordo-preview { display: block !important; box-shadow: none !important; border: 2px solid black !important; }
+  .cert-card { box-shadow: none !important; }
+}
+
+/* Smooth section transitions */
+section.active { animation: none; }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* Form error state */
+.f-group input.error, .f-group select.error, .f-group textarea.error { border-color: var(--red) !important; background: #fff5f5; }
+.field-error { font-size: 0.75rem; color: var(--red); margin-top: -0.8rem; margin-bottom: 0.8rem; display: none; }
+.field-error.show { display: block; }
+
+/* Module card available pulse */
+.module-card:not(.locked) { position: relative; }
+.module-card:not(.locked)::after { content: ''; position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse-dot 2s infinite; }
+
+/* Success animation */
+@keyframes success-pop { 0%{transform:scale(0.8);opacity:0;} 60%{transform:scale(1.05);} 100%{transform:scale(1);opacity:1;} }
+.success-pop { animation: success-pop 0.5s ease forwards; }
+
+/* Typing cursor */
+.typing-cursor::after { content: '|'; animation: blink 1s infinite; color: var(--green); }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+/* Chat message code formatting */
+.msg-bubble code { background: rgba(0,0,0,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--f-mono); font-size: 0.85em; }
+.msg-bubble strong { color: var(--ink); }
+.msg-bubble em { color: var(--green); font-style: normal; font-weight: 600; }
+
+/* Notification badge */
+.notif-badge { position: absolute; top: -4px; right: -4px; background: var(--red); color: white; font-size: 0.65rem; font-weight: 800; padding: 1px 5px; border-radius: 50px; }
+
+/* Hero floating animation */
+.hero-badge { animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="show('home')">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="#006649"/>
+        <path d="M50 24 L50 76 M24 50 L76 50" stroke="#ffffff" stroke-width="13" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="18" fill="none" stroke="#f59e0b" stroke-width="5"/>
+        <circle cx="50" cy="50" r="5" fill="#f59e0b"/>
+      </svg>
+      <div class="nav-brand">
+        <strong>AfriCare <em>Santé</em></strong>
+        <span>// IA Médicale · Maroua · CMR</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button onclick="show('home')" id="nav-home" class="active">Accueil</button>
+      <button onclick="show('about')" id="nav-about">À propos</button>
+      <button onclick="show('blog')" id="nav-blog">Blog</button>
+      <button onclick="show('tele')" id="nav-tele">Télémédecine</button>
+      <button onclick="show('epi')" id="nav-epi">Épidémio</button>
+      <button onclick="show('tarifs')" id="nav-tarifs">Tarifs</button>
+      <button onclick="show('contact')" id="nav-contact">Contact</button>
+    </div>
+    <div class="nav-cta">
+      <button class="btn-ai-nav" onclick="openAI()"><span class="online-dot"></span>IA Médicale</button>
+      <button class="btn-login" onclick="show('login')">Connexion</button>
+      <button class="btn-signup" onclick="show('signup')">S'inscrire</button>
+      <button class="hamburger-btn" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav" style="display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#fff;border-bottom:2px solid var(--border);z-index:999;padding:1rem;box-shadow:0 8px 24px rgba(0,102,73,0.12);">
+  <div style="display:flex;flex-direction:column;gap:0.5rem;">
+    <button onclick="show('home');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">🏠 Accueil</button>
+    <button onclick="show('triage');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">🧠 Triage IA</button>
+    <button onclick="show('ordo');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">💊 Ordonnances</button>
+    <button onclick="show('dashboard');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">📚 Ma formation</button>
+    <button onclick="show('epi');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">📊 Épidémiologie</button>
+    <button onclick="show('about');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">🌍 À propos</button>
+    <button onclick="show('blog');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">📰 Blog</button>
+    <button onclick="show('tele');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">📱 Télémédecine</button>
+    <button onclick="show('tarifs');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">💰 Tarifs</button>
+    <button onclick="show('contact');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">📧 Contact</button>
+    <button onclick="show('faq');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">❓ FAQ</button>
+    <button onclick="show('vision');closeMobileNav()" style="background:none;border:none;text-align:left;padding:0.75rem 1rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;">🚀 Vision 2030</button>
+    <hr style="border:none;border-top:1px solid var(--border);margin:0.25rem 0;">
+    <button onclick="show('login');closeMobileNav()" style="background:var(--green-pale);border:2px solid var(--green);border-radius:10px;padding:0.75rem;font-size:1rem;font-weight:700;color:var(--green);cursor:pointer;">🔐 Se connecter</button>
+    <button onclick="show('signup');closeMobileNav()" style="background:var(--green);border:none;border-radius:10px;padding:0.75rem;font-size:1rem;font-weight:700;color:#fff;cursor:pointer;">🚀 S'inscrire gratuitement</button>
+  </div>
+</div>
+
+<!-- ════════════ TOAST ════════════ -->
+<div id="toast"></div>
+
+<!-- ════════════ FAB ADMIN ════════════ -->
+<button class="fab" onclick="openAdmin()" title="Publier un article">✍️</button>
+
+<!-- ════════════ HOME ════════════ -->
+<section id="home" class="active">
+  <div class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">🌍 Première plateforme IA médicale d'Afrique francophone</div>
+        <h1>La santé africaine mérite une <em>IA</em> à la hauteur de ses <span class="gold">défis</span></h1>
+        <p class="hero-sub">AfriCare Santé révolutionne les soins en Afrique centrale : triage intelligent, formation certifiée, télémédecine et ordonnances adaptées aux protocoles locaux.</p>
+        <div class="hero-btns">
+          <button class="btn-hero-main" onclick="show('signup')">🚀 Commencer gratuitement</button>
+          <button class="btn-hero-sec" onclick="openAI()">🤖 Tester l'IA médicale</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="val" data-count="150">0</div><div class="lbl">Membres actifs</div></div>
+          <div class="hero-stat"><div class="val" data-count="8">0</div><div class="lbl">Pays couverts</div></div>
+          <div class="hero-stat"><div class="val" data-count="12">0</div><div class="lbl">Modules certifiants</div></div>
+          <div class="hero-stat"><div class="val">OMS</div><div class="lbl">Protocoles validés</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="africa-map-wrap">
+          <div class="africa-map-title">🌍 Déploiement panafricain en cours</div>
+          <svg class="africa-svg" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
+            <!-- Silhouette Afrique simplifiée -->
+            <path d="M120,10 L165,8 L200,20 L230,40 L250,70 L258,105 L255,140 L265,175 L270,215 L260,255 L240,290 L210,320 L185,350 L165,368 L148,370 L130,360 L110,338 L85,305 L60,270 L45,240 L38,205 L40,170 L35,140 L38,110 L50,80 L65,55 L85,30 Z" fill="rgba(0,184,122,0.12)" stroke="rgba(0,184,122,0.4)" stroke-width="2"/>
+            <!-- Points pays actifs -->
+            <circle class="country-dot" cx="158" cy="180" r="6"/> <!-- Cameroun -->
+            <text x="168" y="184" font-size="11" fill="#fcd34d" font-weight="700">🇨🇲</text>
+            <circle class="country-dot" cx="155" cy="145" r="5"/>
+            <text x="165" y="149" font-size="10" fill="#6ee7b7">🇹🇩</text>
+            <circle class="country-dot" cx="95" cy="175" r="5"/>
+            <text x="75" y="179" font-size="10" fill="#6ee7b7">🇸🇳</text>
+            <circle class="country-dot" cx="110" cy="200" r="5"/>
+            <text x="90" y="204" font-size="10" fill="#6ee7b7">🇨🇮</text>
+            <circle class="country-dot" cx="175" cy="165" r="5"/>
+            <text x="185" y="169" font-size="10" fill="#6ee7b7">🇨🇫</text>
+            <!-- Légende -->
+            <circle cx="20" cy="340" r="5" fill="#fcd34d"/>
+            <text x="30" y="344" font-size="10" fill="rgba(255,255,255,0.7)">Actif</text>
+            <circle cx="20" cy="358" r="5" fill="rgba(110,231,183,0.5)"/>
+            <text x="30" y="362" font-size="10" fill="rgba(255,255,255,0.7)">En cours</text>
+          </svg>
+        </div>
+        <div class="hero-ai-preview">
+          <div class="ai-preview-title">IA Médicale — Prête à vous aider</div>
+          <div class="ai-msg"><strong>🤖 AfriCare IA :</strong> Bonjour ! Je suis votre assistant médical spécialisé Afrique. Quels symptômes dois-je analyser ?</div>
+          <div class="ai-tags">
+            <div class="ai-tag" onclick="openAIWithQ('Protocole hémorragie post-partum OMS')">🩸 Hémorragie post-partum</div>
+            <div class="ai-tag" onclick="openAIWithQ('Triage paludisme sévère enfant')">🦟 Paludisme sévère</div>
+            <div class="ai-tag" onclick="openAIWithQ('Signes éclampsie urgence')">⚡ Éclampsie</div>
+            <div class="ai-tag" onclick="show('triage')">🏥 Triage complet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLIERS -->
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Notre écosystème</div>
+      <h2>5 piliers pour révolutionner la santé <em>africaine</em></h2>
+      <p>Une plateforme complète, du triage d'urgence à la formation certifiante.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:3rem;">
+      <div class="card" style="text-align:center;cursor:pointer;" onclick="show('triage')">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;">🧠</div>
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;">AfriCare AI Clinique</h3>
+        <p style="font-size:0.78rem;color:var(--muted);">Triage & analyse différentielle</p>
+      </div>
+      <div class="card" style="text-align:center;cursor:pointer;" onclick="show('dashboard')">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;">🎓</div>
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;">AfriCare Academy</h3>
+        <p style="font-size:0.78rem;color:var(--muted);">Formation certifiante OMS</p>
+      </div>
+      <div class="card" style="text-align:center;cursor:pointer;" onclick="show('tele')">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;">📱</div>
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;">AfriCare TeleHealth</h3>
+        <p style="font-size:0.78rem;color:var(--muted);">Téléconsultation sécurisée</p>
+      </div>
+      <div class="card" style="text-align:center;cursor:pointer;" onclick="show('epi')">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;">📊</div>
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;">AfriCare Data</h3>
+        <p style="font-size:0.78rem;color:var(--muted);">Épidémiologie & cartographie</p>
+      </div>
+      <div class="card" style="text-align:center;cursor:pointer;" onclick="show('ordo')">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;">💊</div>
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;">AfriCare Business</h3>
+        <p style="font-size:0.78rem;color:var(--muted);">Ordonnances & gestion</p>
+      </div>
+    </div>
+
+    <!-- PAYS COMPTEUR -->
+    <div style="background:linear-gradient(135deg,var(--green),var(--green-mid));border-radius:20px;padding:2rem;color:#fff;text-align:center;margin-bottom:3rem;">
+      <h3 style="font-family:var(--f-head);font-size:1.4rem;margin-bottom:1rem;">🌍 Présence panafricaine</h3>
+      <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;font-weight:700;">🇨🇲 Cameroun — <strong>Actif</strong></span>
+        <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;font-weight:700;">🇹🇩 Tchad — <strong>Actif</strong></span>
+        <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;font-weight:700;">🇨🇫 RCA — <strong>En cours</strong></span>
+        <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;font-weight:700;">🇸🇳 Sénégal — <strong>En cours</strong></span>
+        <span style="background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.3);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;">🇨🇮 Côte d'Ivoire — Bientôt</span>
+        <span style="background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.3);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;">🇬🇦 Gabon — Bientôt</span>
+        <span style="background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.3);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;">🇲🇱 Mali — Bientôt</span>
+        <span style="background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.3);border-radius:50px;padding:0.4rem 1rem;font-size:0.88rem;">🇧🇯 Bénin — Bientôt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ LOGIN ════════════ -->
+<section id="login" style="background:linear-gradient(135deg,#f0faf5,#ffffff);">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg width="56" height="56" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#006649"/><path d="M50 24 L50 76 M24 50 L76 50" stroke="#fff" stroke-width="13" stroke-linecap="round"/><circle cx="50" cy="50" r="18" fill="none" stroke="#f59e0b" stroke-width="5"/></svg>
+        <h2>Bon retour 👋</h2>
+        <p>Connectez-vous à votre compte AfriCare Santé</p>
+      </div>
+      <div class="f-group">
+        <label>Adresse email</label>
+        <input type="email" id="login-email" placeholder="votre@email.com">
+      </div>
+      <div class="f-group">
+        <label>Mot de passe</label>
+        <input type="password" id="login-pwd" placeholder="••••••••">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;">
+        <div class="checkbox-row" style="margin:0;">
+          <input type="checkbox" id="remember">
+          <label for="remember" style="font-size:0.85rem;">Se souvenir de moi</label>
+        </div>
+        <button style="background:none;border:none;color:var(--green);font-size:0.85rem;font-weight:600;cursor:pointer;">Mot de passe oublié ?</button>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" onclick="doLogin()">🔐 Se connecter</button>
+      <div class="auth-or">ou</div>
+      <button class="btn btn-secondary" style="width:100%;justify-content:center;" onclick="show('signup')">📝 Créer un compte gratuit</button>
+      <div class="auth-switch">Pas encore de compte ? <button onclick="show('signup')">S'inscrire</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SIGNUP ════════════ -->
+<section id="signup" style="background:linear-gradient(135deg,#f0faf5,#ffffff);">
+  <div class="auth-wrap" style="max-width:560px;">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg width="56" height="56" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#006649"/><path d="M50 24 L50 76 M24 50 L76 50" stroke="#fff" stroke-width="13" stroke-linecap="round"/><circle cx="50" cy="50" r="18" fill="none" stroke="#f59e0b" stroke-width="5"/></svg>
+        <h2>Rejoignez AfriCare Santé</h2>
+        <p>Gratuit · Formation certifiée · IA médicale</p>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label>Prénom *</label><input type="text" id="s-fn" placeholder="Jean"></div>
+        <div class="f-group"><label>Nom *</label><input type="text" id="s-ln" placeholder="Mbeki"></div>
+      </div>
+      <div class="f-group"><label>Email professionnel *</label><input type="email" id="s-email" placeholder="jean.mbeki@hopital.cm"></div>
+      <div class="f-group"><label>Téléphone / WhatsApp</label><input type="tel" id="s-phone" placeholder="+237 6XX XXX XXX"></div>
+      <div class="f-row">
+        <div class="f-group">
+          <label>Pays *</label>
+          <select id="s-country">
+            <option value="">Sélectionner</option>
+            <option>Cameroun</option><option>Tchad</option><option>RCA</option>
+            <option>Gabon</option><option>Sénégal</option><option>Côte d'Ivoire</option>
+            <option>Mali</option><option>Bénin</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Profession *</label>
+          <select id="s-job">
+            <option value="">Sélectionner</option>
+            <option>Médecin</option><option>Infirmier(e)</option><option>Sage-femme</option>
+            <option>Aide-soignant(e)</option><option>Pharmacien(ne)</option>
+            <option>Étudiant médecine</option><option>Autre soignant</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-group"><label>Mot de passe *</label><input type="password" id="s-pwd" placeholder="Minimum 8 caractères"></div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="s-rgpd">
+        <label for="s-rgpd">J'accepte les <a href="#" style="color:var(--green);">conditions d'utilisation</a> et la <a href="#" style="color:var(--green);">politique de confidentialité</a></label>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;margin-top:0.5rem;" onclick="doSignup()">🚀 Créer mon compte gratuitement</button>
+      <div class="auth-switch">Déjà un compte ? <button onclick="show('login')">Se connecter</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ DASHBOARD ════════════ -->
+<section id="dashboard">
+  <div class="page-wrap">
+    <div class="dash-header">
+      <div class="dash-welcome">
+        <h2>Bonjour, <span id="dash-name">Dr. Membre</span> 👋</h2>
+        <p>Votre espace de formation médicale personnalisé</p>
+        <div style="margin-top:0.8rem;">
+          <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Progression globale — <span id="dash-prog-pct">0%</span></div>
+          <div class="prog-bar" style="background:rgba(255,255,255,0.2);max-width:300px;">
+            <div class="prog-fill" id="dash-prog" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dash-badge" id="dash-badge">🆓 Compte Gratuit</div>
+        <div style="margin-top:0.75rem;text-align:right;">
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);font-family:var(--f-mono);">Membre depuis</div>
+          <div style="font-size:0.88rem;color:rgba(255,255,255,0.9);font-weight:600;" id="dash-since">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="dash-main">
+        <!-- Actions rapides -->
+        <div class="card">
+          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">⚡ Actions rapides</h3>
+          <div class="qa-grid">
+            <button class="qa-btn" onclick="show('triage')"><div class="qa-icon">🧠</div><div><div class="qa-label">Triage IA</div><div class="qa-sub">Analyser symptômes</div></div></button>
+            <button class="qa-btn" onclick="show('ordo')"><div class="qa-icon">💊</div><div><div class="qa-label">Ordonnance IA</div><div class="qa-sub">Générer PDF</div></div></button>
+            <button class="qa-btn" onclick="show('quiz')"><div class="qa-icon">📝</div><div><div class="qa-label">Quiz formation</div><div class="qa-sub">Continuer mon module</div></div></button>
+            <button class="qa-btn" onclick="openAI()"><div class="qa-icon">🤖</div><div><div class="qa-label">IA médicale</div><div class="qa-sub">Poser une question</div></div></button>
+          </div>
+        </div>
+
+        <!-- Modules -->
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <h3 style="font-size:1rem;font-weight:700;color:var(--ink);">📚 Mes modules de formation</h3>
+            <span style="font-size:0.8rem;color:var(--muted);">6 disponibles</span>
+          </div>
+          <div class="module-grid">
+            <div class="module-card" onclick="show('quiz')">
+              <div class="module-badge badge-free">✅ Gratuit</div>
+              <div class="module-icon">🤱</div>
+              <h3>Santé Maternelle</h3>
+              <p>HPP, éclampsie, soins néonataux</p>
+            </div>
+            <div class="module-card" onclick="show('quiz')">
+              <div class="module-badge badge-free">✅ Gratuit</div>
+              <div class="module-icon">🦟</div>
+              <h3>Paludisme Afrique</h3>
+              <p>Protocoles OMS, zones tropicales</p>
+            </div>
+            <div class="module-card locked">
+              <div class="module-badge badge-pro">🔒 Pro</div>
+              <div class="module-icon">🫀</div>
+              <h3>Cardiologie Urgence</h3>
+              <p>ECG, défibrillation, protocoles</p>
+            </div>
+            <div class="module-card locked">
+              <div class="module-badge badge-pro">🔒 Pro</div>
+              <div class="module-icon">🧬</div>
+              <h3>Maladies tropicales</h3>
+              <p>Trypanosomiase, bilharziose…</p>
+            </div>
+            <div class="module-card locked">
+              <div class="module-badge badge-soon">⏳ Bientôt</div>
+              <div class="module-icon">🏥</div>
+              <h3>Chirurgie rurale</h3>
+              <p>Contexte ressources limitées</p>
+            </div>
+            <div class="module-card locked">
+              <div class="module-badge badge-soon">⏳ Bientôt</div>
+              <div class="module-icon">👶</div>
+              <h3>Pédiatrie Afrique</h3>
+              <p>Malnutrition, vaccins, croissance</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="upgrade-banner">
+          <h4>⭐ Passez à AfriCare Pro</h4>
+          <p>Accédez à tous les modules, l'IA clinique avancée, les ordonnances PDF et la téléconsultation</p>
+          <button class="btn btn-gold btn-sm" onclick="show('tarifs')">Voir les offres — à partir de 5 000 FCFA/mois</button>
+        </div>
+      </div>
+
+      <div class="dash-side">
+        <!-- Stats -->
+        <div class="widget">
+          <div class="widget-title">📊 Mes statistiques</div>
+          <div class="stat-row"><span class="stat-label">Questions IA posées</span><span class="stat-val" id="stat-ai">0</span></div>
+          <div class="stat-row"><span class="stat-label">Modules complétés</span><span class="stat-val" id="stat-mod">0</span></div>
+          <div class="stat-row"><span class="stat-label">Certificats obtenus</span><span class="stat-val" id="stat-cert">0</span></div>
+          <div class="stat-row"><span class="stat-label">Triage effectués</span><span class="stat-val" id="stat-triage">0</span></div>
+          <div class="stat-row"><span class="stat-label">Ordonnances générées</span><span class="stat-val" id="stat-ordo">0</span></div>
+        </div>
+
+        <!-- AI Widget -->
+        <div class="widget">
+          <div class="widget-title">🤖 IA Médicale</div>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Posez votre question médicale directement</p>
+          <div id="dash-ai-chat" style="background:var(--green-soft);border-radius:10px;padding:0.75rem;min-height:80px;max-height:150px;overflow-y:auto;font-size:0.82rem;color:var(--text);margin-bottom:0.5rem;">
+            <strong style="color:var(--green);">🤖 AfriCare IA :</strong> Bonjour ! Comment puis-je vous aider aujourd'hui ?
+          </div>
+          <div style="display:flex;gap:0.4rem;">
+            <input class="search-inp" id="dash-ai-inp" placeholder="Votre question…" style="font-size:0.85rem;padding:0.6rem 0.8rem;" onkeydown="if(event.key==='Enter')sendDashAI()">
+            <button class="btn btn-primary btn-sm" onclick="sendDashAI()">↗</button>
+          </div>
+        </div>
+
+        <!-- Support -->
+        <div class="widget">
+          <div class="widget-title">💬 Support</div>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Besoin d'aide ? Notre équipe répond en 24h.</p>
+          <a href="https://wa.me/237691346168" target="_blank" class="btn btn-secondary btn-sm" style="width:100%;justify-content:center;display:flex;">📱 WhatsApp Support</a>
+          <div style="margin-top:0.4rem;text-align:center;font-size:0.78rem;color:var(--muted);">ou</div>
+          <a href="mailto:contact@africaresante.cm" class="btn btn-secondary btn-sm" style="width:100%;justify-content:center;display:flex;margin-top:0.4rem;">📧 Email support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TRIAGE IA ════════════ -->
+<section id="triage">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">AfriCare AI Clinique</div>
+      <h2>🧠 Triage IA <em>automatique</em></h2>
+      <p>Entrez les symptômes et obtenez une analyse immédiate basée sur les protocoles OMS adaptés à l'Afrique.</p>
+    </div>
+    <div class="triage-wrap">
+      <div class="triage-form">
+        <div class="f-row">
+          <div class="f-group">
+            <label>Âge du patient *</label>
+            <input type="number" id="t-age" placeholder="ex: 34" min="0" max="120">
+          </div>
+          <div class="f-group">
+            <label>Sexe</label>
+            <select id="t-sex">
+              <option value="">Non précisé</option>
+              <option>Masculin</option><option>Féminin</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-group">
+            <label>Pays / Région</label>
+            <select id="t-region">
+              <option value="">Sélectionner</option>
+              <option>Cameroun — Extrême-Nord</option>
+              <option>Cameroun — Nord</option>
+              <option>Cameroun — Adamaoua</option>
+              <option>Cameroun — autre région</option>
+              <option>Tchad</option><option>RCA</option><option>Gabon</option>
+              <option>Sénégal</option><option>Côte d'Ivoire</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label>Température (°C)</label>
+            <input type="number" id="t-temp" placeholder="ex: 38.5" step="0.1" min="34" max="43">
+          </div>
+        </div>
+        <div class="f-group">
+          <label>Symptômes principaux * <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">(décrivez en détail)</span></label>
+          <textarea id="t-symptoms" placeholder="Ex: Fièvre depuis 3 jours, maux de tête intenses, vomissements, frissons, patient prostré, splénomégalie palpable…" rows="4"></textarea>
+        </div>
+        <div class="f-group">
+          <label>Niveau d'urgence perçu</label>
+          <div class="severity-grid">
+            <div class="sev-opt urgent" id="sev-1" onclick="selectSev(1)"><div class="sev-icon">🔴</div><div class="sev-label">Urgence vitale</div></div>
+            <div class="sev-opt" id="sev-2" onclick="selectSev(2)"><div class="sev-icon">🟡</div><div class="sev-label">Semi-urgent</div></div>
+            <div class="sev-opt" id="sev-3" onclick="selectSev(3)"><div class="sev-icon">🟢</div><div class="sev-label">Non urgent</div></div>
+          </div>
+        </div>
+        <div class="f-group">
+          <label>Antécédents importants</label>
+          <input type="text" id="t-antecedents" placeholder="Ex: diabète, hypertension, grossesse, immunodépression…">
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-primary btn-lg" id="triage-btn" onclick="doTriage()">🤖 Analyser avec l'IA médicale</button>
+          <button class="btn btn-secondary" onclick="clearTriage()">🔄 Réinitialiser</button>
+        </div>
+      </div>
+
+      <div class="triage-result" id="triage-result">
+        <div class="result-header">
+          <div>
+            <div style="font-size:0.75rem;color:var(--muted);font-family:var(--f-mono);margin-bottom:0.3rem;">RÉSULTAT ANALYSE IA — AfriCare Santé</div>
+            <div id="result-title" style="font-family:var(--f-head);font-size:1.3rem;font-weight:700;color:var(--ink);"></div>
+          </div>
+          <div id="result-badge-wrap"></div>
+        </div>
+        <div id="result-content"></div>
+        <div class="result-source" id="result-source"></div>
+        <div style="display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Imprimer</button>
+          <button class="btn btn-primary btn-sm" onclick="show('ordo')">💊 Générer ordonnance</button>
+          <button class="btn btn-secondary btn-sm" onclick="doTriage()">🔄 Relancer l'analyse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ORDONNANCE ════════════ -->
+<section id="ordo">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">AfriCare Business Suite</div>
+      <h2>💊 Ordonnance IA <em>contextualisée</em></h2>
+      <p>Générez une ordonnance PDF professionnelle adaptée aux médicaments disponibles en Afrique centrale.</p>
+    </div>
+    <div class="ordo-wrap">
+      <div class="ordo-form">
+        <div class="f-row">
+          <div class="f-group"><label>Nom du prescripteur</label><input type="text" id="o-doc" placeholder="Dr. Goudkoye Abel"></div>
+          <div class="f-group"><label>Qualification</label><input type="text" id="o-qual" placeholder="Infirmier Diplômé d'État"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label>Structure de santé</label><input type="text" id="o-struct" placeholder="CS Maroua Rural"></div>
+          <div class="f-group"><label>Pays</label><select id="o-pays"><option>Cameroun</option><option>Tchad</option><option>RCA</option><option>Gabon</option><option>Sénégal</option></select></div>
+        </div>
+        <hr style="border:none;border-top:1px solid var(--border);margin:1rem 0;">
+        <div class="f-row">
+          <div class="f-group"><label>Prénom du patient</label><input type="text" id="o-pfn" placeholder="Marie"></div>
+          <div class="f-group"><label>Nom du patient</label><input type="text" id="o-pln" placeholder="Ngozi"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label>Âge</label><input type="text" id="o-page" placeholder="28 ans"></div>
+          <div class="f-group"><label>Poids (kg)</label><input type="number" id="o-poids" placeholder="65"></div>
+        </div>
+        <div class="f-group">
+          <label>Diagnostic / Pathologie *</label>
+          <input type="text" id="o-diag" placeholder="Ex: Paludisme à Plasmodium falciparum, forme non compliquée">
+        </div>
+        <div class="f-group">
+          <label>Médicaments et posologie — Décrivez en langage naturel</label>
+          <textarea id="o-meds" rows="4" placeholder="Ex: artéméther-luméfantrine 80/480mg comprimés pour adulte, paracétamol 1g pour fièvre, SRO en cas de vomissements…"></textarea>
+        </div>
+        <div class="f-group">
+          <label>Conseils au patient</label>
+          <textarea id="o-conseils" rows="2" placeholder="Ex: Repos, hydratation abondante, moustiquaire imprégnée, retour si aggravation…"></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg" id="ordo-btn" onclick="genOrdo()">📄 Générer l'ordonnance IA</button>
+      </div>
+
+      <div class="ordo-preview" id="ordo-preview">
+        <div class="ordo-header">
+          <div>
+            <div class="ordo-logo-text">AfriCare Santé</div>
+            <div class="ordo-logo-sub">Plateforme IA Médicale Panafricaine<br>contact@africaresante.cm | africaresante.netlify.app</div>
+          </div>
+          <div class="ordo-doc-info" id="ordo-doc-info"></div>
+        </div>
+        <div class="ordo-title">📋 ORDONNANCE MÉDICALE</div>
+        <div class="ordo-patient" id="ordo-patient-box"></div>
+        <div class="ordo-rx" id="ordo-rx-content"></div>
+        <div class="ordo-warning">
+          ⚠️ <strong>Avertissement :</strong> Cette ordonnance générée par IA est un support d'aide à la décision médicale. Elle ne remplace pas le jugement clinique du professionnel de santé. Tout acte médical reste sous la responsabilité exclusive du praticien. Conformément aux protocoles OMS et à la réglementation pharmaceutique en vigueur.
+        </div>
+        <div class="ordo-footer">
+          <div class="ordo-sign">
+            <div class="sign-line">Signature et cachet du prescripteur</div>
+          </div>
+          <div class="ordo-sign">
+            <div style="text-align:right;font-size:0.75rem;color:var(--muted);">
+              Réf: ACS-ORD-<span id="ordo-ref"></span><br>
+              Valable 30 jours à compter de la date d'émission<br>
+              Généré par AfriCare Santé — IA Médicale
+            </div>
+          </div>
+        </div>
+        <div class="print-btn-row">
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('ordo-preview').style.display='none'">✖ Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ABOUT ════════════ -->
+<section id="about">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Notre histoire</div>
+      <h2>Né à Maroua, pensé pour l'<em>Afrique</em></h2>
+      <p>AfriCare Santé est une initiative africaine, pour les soignants africains.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <div class="founder-card">
+          <div class="founder-av">👨‍⚕️</div>
+          <div class="founder-name">Goudkoye Abel</div>
+          <div class="founder-role">Fondateur · Infirmier Diplômé d'État<br>Maroua, Extrême-Nord, Cameroun</div>
+          <div class="founder-bio" style="margin-top:1rem;">
+            <p>Après 8 ans d'exercice dans les centres de santé de l'Extrême-Nord camerounais, j'ai constaté un manque criant de ressources médicales numériques adaptées à nos réalités africaines.</p>
+            <br>
+            <p>AfriCare Santé est ma réponse à ce défi : une plateforme d'IA médicale qui parle notre langue, connaît nos maladies, et s'adapte à nos contraintes — connexion limitée, ressources rares, protocoles OMS.</p>
+            <br>
+            <p style="font-style:italic;color:var(--green);font-weight:600;">"La santé africaine mérite une technologie africaine."</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="info-blocks">
+          <div class="info-block">
+            <div class="info-icon">🎯</div>
+            <h4>Notre mission</h4>
+            <p>Démocratiser l'accès à l'intelligence artificielle médicale pour tous les soignants d'Afrique francophone.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-icon">🌍</div>
+            <h4>Notre approche</h4>
+            <p>Protocoles OMS adaptés, langues locales, compatibilité 2G/3G, formation continue accessible.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-icon">📍</div>
+            <h4>Notre présence</h4>
+            <p>Basés à Maroua, déployés dans 8 pays d'Afrique centrale et de l'Ouest.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-icon">🏆</div>
+            <h4>Notre vision</h4>
+            <p>Devenir le système d'IA médical de référence de l'Union africaine d'ici 2030.</p>
+          </div>
+        </div>
+        <div class="partners-wrap">
+          <h4>🤝 Partenaires institutionnels</h4>
+          <div class="partner-chips">
+            <div class="partner-chip">🏥 Hôpital District Maroua</div>
+            <div class="partner-chip">🌍 OMS Cameroun</div>
+            <div class="partner-chip">🎓 FMSP Yaoundé</div>
+            <div class="partner-chip">👩‍⚕️ Ordre Infirmiers CMR</div>
+            <div class="partner-chip">🏛 Délégation Santé Extrême-Nord</div>
+            <div class="partner-chip">🌐 Union Africaine Santé</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Témoignages -->
+    <div class="testimonials">
+      <h3 style="font-family:var(--f-head);font-size:1.6rem;font-weight:700;color:var(--ink);text-align:center;margin-bottom:1.5rem;">Ce que disent nos membres</h3>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="quote-mark">"</div>
+          <p>L'IA de triage m'a aidé à identifier un paludisme sévère chez un enfant de 3 ans en 2 minutes. Le protocole OMS s'est affiché immédiatement. Une vie sauvée.</p>
+          <div class="test-author"><div class="test-av">JT</div><div><div class="test-name">Jean-Paul T.</div><div class="test-role">Infirmier, CS Maroua-Rural, Extrême-Nord</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="quote-mark">"</div>
+          <p>Les modules de formation sont excellents. J'ai obtenu mon certificat en Santé Maternelle. Maintenant je gère les urgences obstétricales avec beaucoup plus de confiance.</p>
+          <div class="test-author"><div class="test-av">AF</div><div><div class="test-name">Aminata F.</div><div class="test-role">Sage-femme, Hôpital régional, N'Djamena</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="quote-mark">"</div>
+          <p>La génération d'ordonnances adaptées aux médicaments disponibles au Cameroun est révolutionnaire. Plus besoin de chercher des alternatives manuellement.</p>
+          <div class="test-author"><div class="test-av">DK</div><div><div class="test-name">Dr. Danielle K.</div><div class="test-role">Médecin, Centre de santé, Bangui, RCA</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BLOG ════════════ -->
+<section id="blog">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Ressources médicales</div>
+      <h2>📰 Blog <em>AfriCare</em></h2>
+      <p>Fiches médicales, protocoles OMS, actualités santé Afrique et témoignages de soignants.</p>
+    </div>
+    <div class="blog-layout">
+      <div>
+        <div class="article-grid" id="article-grid"></div>
+      </div>
+      <div class="blog-sidebar">
+        <div class="widget">
+          <input class="search-inp" id="blog-search" placeholder="🔍 Rechercher un article…" oninput="filterArticles()">
+        </div>
+        <div class="widget">
+          <div class="widget-title">📂 Catégories</div>
+          <div class="cat-list" id="cat-list"></div>
+        </div>
+        <div class="contact-block">
+          <h4>📱 Nous contacter</h4>
+          <p>Une question ? Nous répondons sous 24h</p>
+          <a href="https://wa.me/237691346168" target="_blank" class="wa-btn-blog">💬 WhatsApp</a>
+        </div>
+        <div class="email-block">
+          <h4>📧 Email</h4>
+          <a href="mailto:contact@africaresante.cm">contact@africaresante.cm</a>
+          <a href="mailto:abel@africaresante.cm" style="font-size:0.78rem;color:#6b7280;margin-top:0.2rem;">abel@africaresante.cm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TELE ════════════ -->
+<section id="tele">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">AfriCare TeleHealth</div>
+      <h2>📱 Télémédecine <em>sécurisée</em></h2>
+      <p>Connectez vos patients aux spécialistes, partout en Afrique. Dossiers sécurisés, protocoles OMS.</p>
+    </div>
+    <div class="tele-disclaimer">
+      <p>⚠️ <strong>Avertissement médical :</strong> La téléconsultation est un outil d'aide à la décision. Elle ne remplace pas l'examen clinique physique. En cas d'urgence vitale, contactez immédiatement les services d'urgence locaux. Toute décision médicale reste sous la responsabilité du praticien.</p>
+    </div>
+    <div class="tele-grid">
+      <div class="tele-spec"><div class="t-icon">🔒</div><h4>Chiffrement TLS 1.3</h4><p>Toutes vos données médicales sont chiffrées de bout en bout.</p></div>
+      <div class="tele-spec"><div class="t-icon">🌍</div><h4>Protocoles OMS</h4><p>Alignés sur les directives de l'Organisation mondiale de la Santé.</p></div>
+      <div class="tele-spec"><div class="t-icon">📶</div><h4>Compatible 2G/3G</h4><p>Conçu pour fonctionner même avec une connexion limitée en zone rurale.</p></div>
+      <div class="tele-spec"><div class="t-icon">📁</div><h4>Dossier sécurisé</h4><p>Historique patient complet, accessible en toute sécurité.</p></div>
+      <div class="tele-spec"><div class="t-icon">⚖️</div><h4>Cadre légal CMR</h4><p>Conforme à la Loi Cameroun 2010-013 sur la santé numérique.</p></div>
+      <div class="tele-spec"><div class="t-icon">👨‍⚕️</div><h4>20+ médecins</h4><p>Réseau de spécialistes partenaires en Afrique centrale et de l'Ouest.</p></div>
+    </div>
+    <div class="tele-chat">
+      <h3 style="font-family:var(--f-head);font-size:1.3rem;font-weight:700;color:var(--ink);text-align:center;margin-bottom:1rem;">🤖 Assistant SBAR — Préparez votre téléconsultation</h3>
+      <p style="text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:1.5rem;">L'IA vous aide à structurer votre demande de téléconsultation selon la méthode SBAR (Situation-Background-Assessment-Recommendation)</p>
+      <div class="card">
+        <div id="tele-chat-win" style="min-height:200px;max-height:300px;overflow-y:auto;margin-bottom:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+          <div class="msg ai"><div class="msg-bubble"><strong>🤖 Assistant SBAR :</strong> Bonjour ! Je vais vous aider à structurer votre demande de téléconsultation. Décrivez-moi la situation de votre patient.</div></div>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <input class="search-inp" id="tele-inp" placeholder="Décrivez la situation du patient…" onkeydown="if(event.key==='Enter')sendTele()">
+          <button class="btn btn-primary btn-sm" onclick="sendTele()">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ EPIDEMIO ════════════ -->
+<section id="epi">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">AfriCare Data & Research</div>
+      <h2>📊 Tableau de bord <em>épidémiologique</em></h2>
+      <p>Surveillance des pathologies régionales en temps réel. Données agrégées et anonymisées.</p>
+    </div>
+    <div class="epi-grid">
+      <div class="epi-card">
+        <div class="epi-icon">🦟</div>
+        <div class="epi-val">2,847</div>
+        <div class="epi-lbl">Cas paludisme ce mois</div>
+        <div class="epi-trend up">▲ +12% vs mois dernier</div>
+      </div>
+      <div class="epi-card">
+        <div class="epi-icon">🤱</div>
+        <div class="epi-val">143</div>
+        <div class="epi-lbl">Consultations maternelles</div>
+        <div class="epi-trend down">▼ -3% complications</div>
+      </div>
+      <div class="epi-card">
+        <div class="epi-icon">💊</div>
+        <div class="epi-val">89</div>
+        <div class="epi-lbl">Cas choléra signalés</div>
+        <div class="epi-trend up">▲ Alerte active</div>
+      </div>
+      <div class="epi-card">
+        <div class="epi-icon">🧪</div>
+        <div class="epi-val">1,204</div>
+        <div class="epi-lbl">Triage IA effectués</div>
+        <div class="epi-trend down">▼ Taux urgence: 23%</div>
+      </div>
+    </div>
+
+    <div class="epi-map">
+      <h4>📍 Cartographie des pathologies — Région Extrême-Nord, Cameroun</h4>
+      <table class="epi-table">
+        <thead>
+          <tr>
+            <th>Pathologie</th>
+            <th>Cas ce mois</th>
+            <th>Tendance</th>
+            <th>Prévalence relative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🦟 Paludisme (P. falciparum)</td>
+            <td><strong>2,847</strong></td>
+            <td style="color:var(--red);">▲ +12%</td>
+            <td><div class="epi-bar-wrap"><div class="epi-bar"><div class="epi-bar-fill red" style="width:85%"></div></div><span style="font-size:0.8rem;font-weight:700;">85%</span></div></td>
+          </tr>
+          <tr>
+            <td>💧 Choléra</td>
+            <td><strong>89</strong></td>
+            <td style="color:var(--red);">▲ Alerte</td>
+            <td><div class="epi-bar-wrap"><div class="epi-bar"><div class="epi-bar-fill orange" style="width:25%"></div></div><span style="font-size:0.8rem;font-weight:700;">25%</span></div></td>
+          </tr>
+          <tr>
+            <td>🤱 Complications obstétricales</td>
+            <td><strong>43</strong></td>
+            <td style="color:var(--green);">▼ -3%</td>
+            <td><div class="epi-bar-wrap"><div class="epi-bar"><div class="epi-bar-fill" style="width:15%"></div></div><span style="font-size:0.8rem;font-weight:700;">15%</span></div></td>
+          </tr>
+          <tr>
+            <td>🦠 Méningite bactérienne</td>
+            <td><strong>12</strong></td>
+            <td style="color:var(--muted);">→ Stable</td>
+            <td><div class="epi-bar-wrap"><div class="epi-bar"><div class="epi-bar-fill" style="width:5%"></div></div><span style="font-size:0.8rem;font-weight:700;">5%</span></div></td>
+          </tr>
+          <tr>
+            <td>😮‍💨 Infections respiratoires</td>
+            <td><strong>634</strong></td>
+            <td style="color:var(--gold);">▲ Saison sèche</td>
+            <td><div class="epi-bar-wrap"><div class="epi-bar"><div class="epi-bar-fill orange" style="width:45%"></div></div><span style="font-size:0.8rem;font-weight:700;">45%</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:var(--green-pale);border:2px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;">
+      <h4 style="font-family:var(--f-head);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">📤 Contribuer aux données épidémiologiques</h4>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:1rem;">Signalez anonymement vos cas pour enrichir la surveillance régionale. Vos données aident à anticiper les épidémies.</p>
+      <button class="btn btn-primary" onclick="openAI()">🤖 Signaler un cas via l'IA</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ QUIZ ════════════ -->
+<section id="quiz">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">AfriCare Academy</div>
+      <h2>📝 Quiz — <em>Santé Maternelle</em></h2>
+      <p>Évaluez vos connaissances sur les urgences obstétricales selon les protocoles OMS.</p>
+    </div>
+    <div class="quiz-wrap">
+      <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="quiz-prog" style="width:0%"></div></div>
+      <form id="quiz-form" onsubmit="return false;">
+        <div class="q-block">
+          <div class="q-num">Question 1 / 4</div>
+          <div class="q-text">Quelle est la première mesure à prendre face à une hémorragie du post-partum (HPP) ?</div>
+          <div class="q-source">📖 Source : OMS — Soins maternels d'urgence, 2023</div>
+          <div class="q-options">
+            <label class="q-option"><input type="radio" name="q1" value="a"> <span>A. Attendre et observer l'évolution</span></label>
+            <label class="q-option"><input type="radio" name="q1" value="b"> <span>B. Administrer 10 UI d'ocytocine IM immédiatement</span></label>
+            <label class="q-option"><input type="radio" name="q1" value="c"> <span>C. Préparer une transfusion sanguine</span></label>
+            <label class="q-option"><input type="radio" name="q1" value="d"> <span>D. Appeler le chirurgien en premier</span></label>
+          </div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 2 / 4</div>
+          <div class="q-text">Quel est le signe clinique le plus précoce d'une éclampsie sévère ?</div>
+          <div class="q-source">📖 Source : OMS — Recommandations pour la pré-éclampsie, 2022</div>
+          <div class="q-options">
+            <label class="q-option"><input type="radio" name="q2" value="a"> <span>A. Convulsions tonico-cloniques généralisées</span></label>
+            <label class="q-option"><input type="radio" name="q2" value="b"> <span>B. TA ≥ 160/110 + protéinurie + céphalées intenses + scotomes</span></label>
+            <label class="q-option"><input type="radio" name="q2" value="c"> <span>C. Œdème des membres inférieurs uniquement</span></label>
+            <label class="q-option"><input type="radio" name="q2" value="d"> <span>D. Fièvre supérieure à 39°C</span></label>
+          </div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 3 / 4</div>
+          <div class="q-text">Quelle est la dose recommandée de sulfate de magnésium pour la prévention des convulsions en pré-éclampsie sévère ?</div>
+          <div class="q-source">📖 Source : OMS — Protocole MgSO4, Genève 2021</div>
+          <div class="q-options">
+            <label class="q-option"><input type="radio" name="q3" value="a"> <span>A. 2g IV lente en 15 minutes</span></label>
+            <label class="q-option"><input type="radio" name="q3" value="b"> <span>B. 4g IV lente en 15-20 minutes (dose de charge), puis 1g/h</span></label>
+            <label class="q-option"><input type="radio" name="q3" value="c"> <span>C. 10g IM en une seule injection</span></label>
+            <label class="q-option"><input type="radio" name="q3" value="d"> <span>D. 1g IV toutes les 2 heures</span></label>
+          </div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 4 / 4</div>
+          <div class="q-text">Pour un nouveau-né qui ne respire pas spontanément à la naissance, quelle est la première étape ?</div>
+          <div class="q-source">📖 Source : OMS — Réanimation néonatale, 2022</div>
+          <div class="q-options">
+            <label class="q-option"><input type="radio" name="q4" value="a"> <span>A. Commencer immédiatement le massage cardiaque</span></label>
+            <label class="q-option"><input type="radio" name="q4" value="b"> <span>B. Sécher, stimuler et libérer les voies aériennes en 60 secondes</span></label>
+            <label class="q-option"><input type="radio" name="q4" value="c"> <span>C. Administrer de l'adrénaline</span></label>
+            <label class="q-option"><input type="radio" name="q4" value="d"> <span>D. Transfuser immédiatement</span></label>
+          </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-primary btn-lg" onclick="submitQuiz()">✅ Valider mes réponses</button>
+          <button class="btn btn-secondary" onclick="show('dashboard')">← Retour</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CERTIFICAT ════════════ -->
+<section id="cert">
+  <div class="cert-wrap">
+    <div class="cert-card" id="cert-card">
+      <div class="cert-top">
+        <div class="cert-logo-wrap">
+          <svg width="40" height="40" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#006649"/><path d="M50 24 L50 76 M24 50 L76 50" stroke="#fff" stroke-width="13" stroke-linecap="round"/><circle cx="50" cy="50" r="18" fill="none" stroke="#f59e0b" stroke-width="5"/></svg>
+          <strong>AfriCare Santé</strong>
+        </div>
+        <div class="cert-badge-oms">✅ OMS Validé</div>
+      </div>
+      <div class="cert-title">Certificat de formation continue</div>
+      <div class="cert-divider"></div>
+      <div class="cert-issued">Décerne le présent certificat à</div>
+      <div class="cert-name" id="cert-name">—</div>
+      <div class="cert-text">pour avoir complété avec succès le module</div>
+      <div class="cert-module" id="cert-module">Santé Maternelle & Obstétricale</div>
+      <div class="cert-score-badge" id="cert-score">🏆 Score : — / 100</div>
+      <div class="cert-footer-grid">
+        <div class="cert-footer-col">
+          <div class="lbl">Date d'obtention</div>
+          <div class="val" id="cert-date">—</div>
+        </div>
+        <div class="cert-footer-col">
+          <div class="lbl">Vérification QR</div>
+          <div class="cert-qr" id="cert-qr" style="margin:0.25rem auto 0;">
+            <div class="cert-qr-inner" id="qr-grid"></div>
+          </div>
+          <div class="cert-ref" id="cert-ref"></div>
+        </div>
+        <div class="cert-footer-col">
+          <div class="lbl">Organisme</div>
+          <div class="val" style="font-size:0.78rem;">AfriCare Santé<br>Maroua, Cameroun<br>Protocoles OMS 2023</div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-actions">
+      <button class="btn btn-primary btn-lg" onclick="printCert()">🖨️ Imprimer le certificat A4</button>
+      <button class="btn btn-secondary" onclick="show('dashboard')">← Tableau de bord</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TARIFS ════════════ -->
+<section id="tarifs">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Nos offres</div>
+      <h2>Des tarifs adaptés à la <em>réalité africaine</em></h2>
+      <p>Commencez gratuitement. Passez au Pro quand vous êtes prêt.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-plan">Gratuit</div>
+        <div class="price-amount">0 <span>FCFA/mois</span></div>
+        <div class="price-desc">Pour découvrir AfriCare Santé</div>
+        <ul class="pricing-features">
+          <li class="yes">2 modules gratuits</li>
+          <li class="yes">IA médicale (10 questions/jour)</li>
+          <li class="yes">Triage IA basique</li>
+          <li class="yes">Blog & ressources OMS</li>
+          <li class="yes">Certificats numériques</li>
+          <li class="no">Ordonnances PDF illimitées</li>
+          <li class="no">Téléconsultation</li>
+          <li class="no">Tableau épidémiologique</li>
+          <li class="no">Support prioritaire</li>
+        </ul>
+        <button class="btn btn-secondary" style="width:100%;justify-content:center;" onclick="show('signup')">Commencer gratuitement</button>
+      </div>
+      <div class="price-card featured">
+        <div class="price-plan">Pro</div>
+        <div class="price-amount">5 000 <span>FCFA/mois</span></div>
+        <div class="price-desc">Pour les soignants actifs</div>
+        <ul class="pricing-features">
+          <li class="yes">Tous les modules (12+)</li>
+          <li class="yes">IA médicale illimitée</li>
+          <li class="yes">Triage IA avancé (OMS complet)</li>
+          <li class="yes">Ordonnances PDF illimitées</li>
+          <li class="yes">Accès téléconsultation</li>
+          <li class="yes">Tableau épidémiologique</li>
+          <li class="yes">Certificats vérifiables QR</li>
+          <li class="yes">Support WhatsApp 24h</li>
+          <li class="yes">Mises à jour protocoles OMS</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="show('signup')">Commencer l'essai 7 jours</button>
+        <div style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.5rem;">🔒 Garantie satisfait ou remboursé 7 jours</div>
+      </div>
+      <div class="price-card">
+        <div class="price-plan">Institutionnel</div>
+        <div class="price-amount" style="font-size:1.8rem;">Sur devis</div>
+        <div class="price-desc">Hôpitaux, ONG, Universités</div>
+        <ul class="pricing-features">
+          <li class="yes">Licences multi-utilisateurs</li>
+          <li class="yes">Formation équipe sur site</li>
+          <li class="yes">Tableau de bord institution</li>
+          <li class="yes">Rapports épidémiologiques</li>
+          <li class="yes">Intégration système existant</li>
+          <li class="yes">Support dédié 24/7</li>
+          <li class="yes">Formation continue OMS</li>
+          <li class="yes">Certificats institution</li>
+          <li class="yes">Facturation mensuelle ou annuelle</li>
+        </ul>
+        <button class="btn btn-secondary" style="width:100%;justify-content:center;" onclick="openAI()">📧 Nous contacter</button>
+      </div>
+    </div>
+    <div class="pay-section">
+      <h4>💳 Modes de paiement acceptés</h4>
+      <div class="pay-chips">
+        <div class="pay-chip">📱 Orange Money</div>
+        <div class="pay-chip">📱 MTN Mobile Money</div>
+        <div class="pay-chip">📱 Moov Money</div>
+        <div class="pay-chip">📱 Wave</div>
+        <div class="pay-chip">🏦 Virement bancaire</div>
+        <div class="pay-chip">💳 Carte bancaire</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FAQ ════════════ -->
+<section id="faq">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Questions fréquentes</div>
+      <h2>Vous avez des <em>questions</em> ?</h2>
+      <p>Retrouvez les réponses aux questions les plus posées par nos membres.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment créer mon compte gratuitement ?<span class="faq-icon">+</span></div><div class="faq-a">Cliquez sur "S'inscrire" en haut de la page, remplissez vos informations professionnelles (nom, email, pays, profession) et validez. Votre compte est actif immédiatement. Aucune carte bancaire requise pour le compte gratuit.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment fonctionne l'IA médicale ?<span class="faq-icon">+</span></div><div class="faq-a">Notre IA est basée sur Claude d'Anthropic, spécialisée pour les contextes médicaux africains. Elle analyse vos questions en se basant sur les protocoles OMS, les guidelines des ministères de santé africains et une base de données des pathologies tropicales. Elle fournit toujours ses sources et rappelle que la décision clinique appartient au praticien.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Les certificats sont-ils reconnus officiellement ?<span class="faq-icon">+</span></div><div class="faq-a">Nos certificats sont des attestations de formation continue basées sur les protocoles OMS. Ils sont munis d'un QR code de vérification unique. La reconnaissance officielle dépend de chaque ordre professionnel national. Nous travaillons activement avec l'Ordre des Infirmiers du Cameroun et d'autres corps pour leur reconnaissance formelle.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Quels modes de paiement pour le Pro ?<span class="faq-icon">+</span></div><div class="faq-a">Nous acceptons Orange Money, MTN Mobile Money, Moov Money, Wave, virement bancaire et cartes bancaires Visa/Mastercard. Le paiement est sécurisé et vous recevez un reçu par email.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">La plateforme fonctionne-t-elle avec une connexion 2G ?<span class="faq-icon">+</span></div><div class="faq-a">Oui ! AfriCare Santé est optimisée pour les connexions lentes. La page principale charge en moins de 3 secondes sur 2G. Les modules de formation sont légers. Seul le chat IA nécessite une connexion stable (3G recommandée pour de meilleures performances).</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment annuler mon abonnement Pro ?<span class="faq-icon">+</span></div><div class="faq-a">Vous pouvez annuler à tout moment via WhatsApp (+237 691 346 168) ou par email (contact@africaresante.cm). L'annulation prend effet à la fin de la période en cours. Garantie satisfait ou remboursé 7 jours.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment contacter l'équipe AfriCare Santé ?<span class="faq-icon">+</span></div><div class="faq-a">Par WhatsApp : +237 691 346 168 ou +237 654 267 644. Par email : contact@africaresante.cm. Notre équipe basée à Maroua répond sous 24h les jours ouvrables.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mes données médicales sont-elles protégées ?<span class="faq-icon">+</span></div><div class="faq-a">Oui. Toutes les données sont chiffrées (AES-256, TLS 1.3). Nous ne vendons jamais vos données. Les données épidémiologiques sont anonymisées avant utilisation. Conformité RGPD et réglementation camerounaise sur la protection des données personnelles.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ VISION ════════════ -->
+<section id="vision">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Notre ambition 2030</div>
+      <h2>Devenir le système IA médical de <em>référence africaine</em></h2>
+      <p>Une roadmap ambitieuse, des étapes concrètes, un impact continental.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-box"><div class="kpi-val">2 000</div><div class="kpi-lbl">Membres actifs 2026</div></div>
+      <div class="kpi-box"><div class="kpi-val">15</div><div class="kpi-lbl">Pays couverts 2027</div></div>
+      <div class="kpi-box"><div class="kpi-val">25+</div><div class="kpi-lbl">Modules certifiants</div></div>
+      <div class="kpi-box"><div class="kpi-val">50 000</div><div class="kpi-lbl">Certificats d'ici 2030</div></div>
+    </div>
+    <div class="roadmap">
+      <div class="road-item"><div class="road-year">2025<br>✅</div><div class="road-content"><h4>Lancement AfriCare Santé V4</h4><p>Plateforme IA médicale, triage automatique, ordonnances PDF, formation certifiante. Déploiement Cameroun et Tchad.</p></div></div>
+      <div class="road-item"><div class="road-year">2026</div><div class="road-content"><h4>Expansion Afrique Centrale</h4><p>RCA, Gabon, Congo-Brazzaville. Partenariat Ministères de la Santé. App mobile Android. 2 000 membres.</p></div></div>
+      <div class="road-item"><div class="road-year">2027</div><div class="road-content"><h4>Afrique de l'Ouest francophone</h4><p>Sénégal, Côte d'Ivoire, Mali, Bénin, Burkina Faso. Partenariat OMS Afrique. Fine-tuning IA sur maladies africaines.</p></div></div>
+      <div class="road-item"><div class="road-year">2028</div><div class="road-content"><h4>Intégration Union Africaine</h4><p>Système de référence officiel. Certificats reconnus dans 15+ pays. Plateforme de surveillance épidémiologique panafricaine.</p></div></div>
+      <div class="road-item"><div class="road-year">2030</div><div class="road-content"><h4>Leader IA Santé Africaine</h4><p>50 000 certificats délivrés. 25+ pays. Modèle IA spécialisé Afrique. Partenariat UA, OMS, universités médicales africaines.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CONTACT ════════════ -->
+<section id="contact">
+  <div class="page-wrap">
+    <div class="page-head">
+      <div class="label">Nous joindre</div>
+      <h2>📧 <em>Contact</em> & Partenariats</h2>
+      <p>Notre équipe basée à Maroua répond sous 24h. Pour les partenariats institutionnels, décrivez votre projet.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Coordonnées AfriCare Santé</h3>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div><div class="ci-label">Adresse</div><div class="ci-val">Maroua, Extrême-Nord, Cameroun</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📱</div>
+          <div><div class="ci-label">WhatsApp Principal</div><div class="ci-val"><a href="https://wa.me/237691346168">+237 691 346 168</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📱</div>
+          <div><div class="ci-label">WhatsApp Support</div><div class="ci-val"><a href="https://wa.me/237654267644">+237 654 267 644</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📧</div>
+          <div><div class="ci-label">Email général</div><div class="ci-val"><a href="mailto:contact@africaresante.cm">contact@africaresante.cm</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📧</div>
+          <div><div class="ci-label">Email fondateur</div><div class="ci-val"><a href="mailto:abel@africaresante.cm">abel@africaresante.cm</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🕐</div>
+          <div><div class="ci-label">Horaires</div><div class="ci-val">Lun–Sam : 8h–18h (heure Maroua)</div></div>
+        </div>
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <a href="https://wa.me/237691346168" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
+          <a href="mailto:contact@africaresante.cm" class="btn btn-secondary">📧 Email</a>
+        </div>
+        <div class="map-placeholder">📍</div>
+      </div>
+      <div>
+        <div class="card">
+          <h3 style="font-family:var(--f-head);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:1.2rem;">✉️ Envoyer un message</h3>
+          <div class="f-row">
+            <div class="f-group"><label>Prénom</label><input type="text" id="c-fn" placeholder="Jean"></div>
+            <div class="f-group"><label>Nom</label><input type="text" id="c-ln" placeholder="Mbeki"></div>
+          </div>
+          <div class="f-group"><label>Email *</label><input type="email" id="c-email" placeholder="jean@hopital.cm"></div>
+          <div class="f-group"><label>Organisation</label><input type="text" id="c-org" placeholder="Hôpital, ONG, Université…"></div>
+          <div class="f-group">
+            <label>Sujet *</label>
+            <select id="c-subj">
+              <option value="">Sélectionner un sujet</option>
+              <option>Partenariat institutionnel</option>
+              <option>Abonnement Pro</option>
+              <option>Question technique</option>
+              <option>Collaboration ONG/Université</option>
+              <option>Média / Presse</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="f-group"><label>Message *</label><textarea id="c-msg" rows="5" placeholder="Décrivez votre projet ou votre question…"></textarea></div>
+          <button class="btn btn-primary btn-lg" onclick="submitContact()" style="width:100%;justify-content:center;">📤 Envoyer le message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ LEGAL ════════════ -->
+<section id="legal">
+  <div class="page-wrap" style="max-width:800px;">
+    <div class="page-head"><h2 style="font-family:var(--f-head);">⚖️ Mentions légales</h2></div>
+    <div class="card" style="margin-bottom:1rem;">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--green);margin-bottom:0.75rem;">Éditeur</h3>
+      <p>AfriCare Santé — Plateforme IA Médicale Panafricaine<br>Fondateur : Goudkoye Abel, Infirmier Diplômé d'État<br>Adresse : Maroua, Extrême-Nord, Cameroun<br>Email : contact@africaresante.cm<br>Tél : +237 691 346 168</p>
+    </div>
+    <div class="card" style="margin-bottom:1rem;">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--green);margin-bottom:0.75rem;">Propriété intellectuelle</h3>
+      <p>Tout le contenu de ce site (textes, images, algorithmes, modules de formation) est la propriété exclusive d'AfriCare Santé. Toute reproduction est interdite sans autorisation écrite.</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--green);margin-bottom:0.75rem;">Responsabilité médicale</h3>
+      <p>L'IA médicale d'AfriCare Santé est un outil d'aide à la décision. Elle ne remplace en aucun cas l'examen clinique et le jugement du professionnel de santé qualifié. AfriCare Santé ne peut être tenue responsable de décisions médicales prises sur la base seule des recommandations de l'IA.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="fb-name">AfriCare Santé 🌍</div>
+      <p>Première plateforme d'IA médicale panafricaine. Basée à Maroua, déployée dans 8 pays d'Afrique francophone. Protocoles OMS, formation certifiante, triage intelligent.</p>
+      <a href="https://wa.me/237691346168" target="_blank" class="wa-btn-footer">📱 +237 691 346 168</a>
+      <a href="mailto:contact@africaresante.cm" style="display:block;font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:0.3rem;">📧 contact@africaresante.cm</a>
+    </div>
+    <div class="footer-col">
+      <h4>Plateforme</h4>
+      <ul>
+        <li><button onclick="show('home')">Accueil</button></li>
+        <li><button onclick="show('triage')">Triage IA</button></li>
+        <li><button onclick="show('dashboard')">Ma formation</button></li>
+        <li><button onclick="show('ordo')">Ordonnances</button></li>
+        <li><button onclick="show('epi')">Épidémiologie</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><button onclick="show('blog')">Blog médical</button></li>
+        <li><button onclick="show('tele')">Télémédecine</button></li>
+        <li><button onclick="show('faq')">FAQ</button></li>
+        <li><button onclick="show('about')">À propos</button></li>
+        <li><button onclick="show('vision')">Vision 2030</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal & Contact</h4>
+      <ul>
+        <li><button onclick="show('legal')">Mentions légales</button></li>
+        <li><button onclick="show('tarifs')">Tarifs</button></li>
+        <li><button onclick="show('contact')">Contact</button></li>
+        <li><a href="https://wa.me/237691346168" target="_blank">WhatsApp</a></li>
+        <li><a href="mailto:contact@africaresante.cm">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AfriCare Santé — Maroua, Extrême-Nord, Cameroun. Tous droits réservés.</span>
+    <span class="ft-badge">// v4.0 · IA Médicale · Panafricain · Claude Anthropic</span>
+  </div>
+</footer>
+
+<!-- ════════════ AI MODAL ════════════ -->
+<div id="ai-modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="modal-title">🤖 AfriCare IA Médicale <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— Protocoles OMS</span></div>
+      <button class="modal-close" onclick="closeAI()">✕</button>
+    </div>
+    <div class="modal-sugs">
+      <div class="modal-sug" onclick="askQ('Protocole HPP selon OMS : étapes à suivre')">🩸 HPP protocole</div>
+      <div class="modal-sug" onclick="askQ('Dose artéméther-luméfantrine adulte paludisme non compliqué')">🦟 Paludisme dose</div>
+      <div class="modal-sug" onclick="askQ('Critères triage START pour accidentés de masse')">🏥 Triage START</div>
+      <div class="modal-sug" onclick="askQ('Signes gravité chez enfant fébrile en zone tropicale')">🌡️ Fièvre enfant</div>
+    </div>
+    <div class="chat-window" id="modal-chat"></div>
+    <div class="chat-input-row">
+      <textarea class="chat-input" id="modal-inp" rows="2" placeholder="Tapez votre question ici…" autocomplete="off" autocorrect="off" spellcheck="true" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendModal();}"></textarea>
+      <button class="chat-send" id="modal-send" onclick="sendModal()">↗</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ ARTICLE MODAL ════════════ -->
+<div id="article-modal">
+  <div class="art-modal-box">
+    <div class="art-modal-banner" id="art-banner"></div>
+    <div class="art-modal-body">
+      <div class="art-modal-cat" id="art-cat"></div>
+      <h2 id="art-title"></h2>
+      <div class="art-modal-meta" id="art-meta"></div>
+      <div class="art-modal-content" id="art-content"></div>
+      <div class="art-share">
+        <button class="btn btn-secondary btn-sm" onclick="shareWA()">📱 WhatsApp</button>
+        <button class="btn btn-secondary btn-sm" onclick="copyLink()">🔗 Copier le lien</button>
+        <button class="btn btn-secondary btn-sm" onclick="closeArticle()">✕ Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ ADMIN PANEL ════════════ -->
+<div id="admin-panel">
+  <div class="admin-box">
+    <div class="admin-title">✍️ Publier un article</div>
+    <div class="admin-sub">Ajoutez un nouvel article au blog AfriCare Santé</div>
+    <div class="f-group"><label>Titre *</label><input type="text" id="a-title" placeholder="Titre de l'article"></div>
+    <div class="f-row">
+      <div class="f-group">
+        <label>Catégorie *</label>
+        <select id="a-cat">
+          <option value="fiche">Fiche médicale</option>
+          <option value="actu">Actualité santé</option>
+          <option value="conseil">Conseil soignants</option>
+          <option value="temoignage">Témoignage</option>
+          <option value="abel">Article Abel</option>
+        </select>
+      </div>
+      <div class="f-group"><label>Temps de lecture</label><input type="text" id="a-read" placeholder="5 min"></div>
+    </div>
+    <div class="f-group"><label>Résumé *</label><input type="text" id="a-excerpt" placeholder="Courte description de l'article…"></div>
+    <div class="f-group"><label>Contenu complet *</label><textarea id="a-content" rows="8" placeholder="Contenu détaillé de l'article…"></textarea></div>
+    <div style="display:flex;gap:0.75rem;">
+      <button class="btn btn-primary" onclick="publishArticle()">✅ Publier</button>
+      <button class="btn btn-secondary" onclick="closeAdmin()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// ── CONFIGURATION IA GRATUITE ──
+// Puter.js : IA gratuite sans clé API (Claude/GPT via navigateur utilisateur)
+// Groq : fallback gratuit avec llama3 (14400 req/jour, sans carte bancaire)
+// Pour utiliser Groq : créez un compte gratuit sur console.groq.com
+const GROQ_KEY = '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'; // Optionnel - laissez vide pour utiliser Puter.js
+const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
+
+const SYS_MEDICAL = "Tu es AfriCare IA, assistant medical specialise Afrique. Tu connais les protocoles OMS Afrique subsaharienne, les pathologies tropicales, la pharmacopee Afrique centrale. Reponds en francais. Cite tes sources. Rappelle que la decision clinique appartient au praticien. Format : points cles, doses precises. Urgence vitale : dis-le immediatement.";
+
+const SYS_TRIAGE = "Tu es expert de triage medical specialise Afrique. Analyse les symptomes. Reponds UNIQUEMENT en JSON valide sans aucun texte autour : {\"urgence\":\"VITALE\",\"titre\":\"diagnostic\",\"hypotheses\":[\"h1\",\"h2\"],\"examens\":[\"e1\"],\"conduite\":[\"c1\",\"c2\"],\"alarmes\":[\"a1\"],\"source\":\"OMS 2023\"}. urgence doit etre VITALE, SEMI, ou NON.";
+
+const SYS_ORDO = "Tu es assistant de redaction d ordonnances pour l Afrique centrale. Reponds UNIQUEMENT en JSON valide : {\"medicaments\":[{\"nom\":\"\",\"forme\":\"\",\"posologie\":\"\",\"duree\":\"\",\"note\":\"\"}],\"conseils\":[\"c1\"],\"surveillance\":[\"s1\"]}. Utilise medicaments disponibles en Afrique. Suis protocoles OMS.";
+
+const SYS_SBAR = "Tu es assistant de teleconsultation utilisant la methode SBAR. Aide le soignant a structurer sa demande. Pose des questions ciblees. Reponds en francais.";
+
+let modalHistory = [];
+let teleHistory = [];
+let selectedSev = 2;
+let articles = [];
+let nextArtId = 7;
+let currentArtId = null;
+
+const NAV_MAP = {
+  home: 'nav-home',
+  about: 'nav-about',
+  blog: 'nav-blog',
+  tele: 'nav-tele',
+  epi: 'nav-epi',
+  tarifs: 'nav-tarifs',
+  contact: 'nav-contact'
+};
+
+// ── NAVIGATION ──
+function show(id) {
+  document.querySelectorAll('section').forEach(function(s) {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if (!target) { console.error('Section not found: ' + id); return; }
+
+  target.style.display = 'block';
+  target.classList.add('active');
+
+  document.querySelectorAll('.nav-links button').forEach(function(b) {
+    b.classList.remove('active');
+  });
+
+  if (NAV_MAP[id]) {
+    const nb = document.getElementById(NAV_MAP[id]);
+    if (nb) nb.classList.add('active');
+  }
+
+  window.scrollTo(0, 0);
+  closeMobileNav();
+
+  if (id === 'blog') renderArticles();
+  if (id === 'dashboard') updateDash();
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 3500);
+}
+
+// ── MOBILE NAV ──
+function toggleMobileNav() {
+  const mn = document.getElementById('mobile-nav');
+  const hb = document.getElementById('hamburger');
+  if (!mn) return;
+  if (mn.style.display === 'none' || mn.style.display === '') {
+    mn.style.display = 'block';
+    if (hb) hb.textContent = 'X';
+  } else {
+    mn.style.display = 'none';
+    if (hb) hb.textContent = '☰';
+  }
+}
+
+function closeMobileNav() {
+  const mn = document.getElementById('mobile-nav');
+  const hb = document.getElementById('hamburger');
+  if (mn) mn.style.display = 'none';
+  if (hb) hb.textContent = '☰';
+}
+
+// ── AUTH ──
+function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const pwd = document.getElementById('login-pwd').value;
+
+  if (!email || !pwd) {
+    showToast('Remplissez tous les champs');
+    return;
+  }
+
+  const savedEmail = localStorage.getItem('ac_email');
+  const savedPwd = localStorage.getItem('ac_pwd');
+  const savedFn = localStorage.getItem('ac_fn');
+
+  if (!savedEmail) {
+    showToast('Aucun compte. Inscrivez-vous dabord.');
+    setTimeout(function() { show('signup'); }, 1500);
+    return;
+  }
+
+  if (savedEmail !== email) {
+    showToast('Email incorrect.');
+    return;
+  }
+
+  if (savedPwd && savedPwd !== pwd) {
+    showToast('Mot de passe incorrect.');
+    return;
+  }
+
+  const nom = savedFn || '';
+  showToast('Connexion reussie ! Bienvenue ' + nom + ' !');
+  setTimeout(function() {
+    show('dashboard');
+    updateDash();
+    updateNavForLoggedUser();
+  }, 800);
+}
+
+function doSignup() {
+  const fn = document.getElementById('s-fn').value.trim();
+  const ln = document.getElementById('s-ln').value.trim();
+  const email = document.getElementById('s-email').value.trim();
+  const pwd = document.getElementById('s-pwd').value;
+  const country = document.getElementById('s-country').value;
+  const job = document.getElementById('s-job').value;
+  const rgpd = document.getElementById('s-rgpd').checked;
+
+  if (!fn || !ln || !email || !country || !job) {
+    showToast('Remplissez tous les champs obligatoires');
+    return;
+  }
+  if (!rgpd) {
+    showToast('Acceptez les conditions utilisation');
+    return;
+  }
+
+  localStorage.setItem('ac_fn', fn);
+  localStorage.setItem('ac_ln', ln);
+  localStorage.setItem('ac_email', email);
+  localStorage.setItem('ac_pwd', pwd);
+  localStorage.setItem('ac_country', country);
+  localStorage.setItem('ac_job', job);
+  localStorage.setItem('ac_since', new Date().toLocaleDateString('fr-FR'));
+
+  showToast('Compte cree ! Bienvenue ' + fn + ' !');
+  setTimeout(function() {
+    show('dashboard');
+    updateDash();
+    updateNavForLoggedUser();
+  }, 800);
+}
+
+function updateNavForLoggedUser() {
+  const fn = localStorage.getItem('ac_fn');
+  if (!fn) return;
+  const loginBtn = document.querySelector('.btn-login');
+  const signupBtn = document.querySelector('.btn-signup');
+  if (loginBtn) {
+    loginBtn.textContent = fn.substring(0, 12);
+    loginBtn.onclick = function() { show('dashboard'); };
+  }
+  if (signupBtn) {
+    signupBtn.textContent = 'Mon espace';
+    signupBtn.onclick = function() { show('dashboard'); };
+  }
+}
+
+function updateDash() {
+  const fn = localStorage.getItem('ac_fn') || 'Membre';
+  const ln = localStorage.getItem('ac_ln') || '';
+  const since = localStorage.getItem('ac_since') || '-';
+
+  const nameEl = document.getElementById('dash-name');
+  const sinceEl = document.getElementById('dash-since');
+  if (nameEl) nameEl.textContent = fn + ' ' + ln;
+  if (sinceEl) sinceEl.textContent = since;
+
+  const counts = {
+    'stat-ai': localStorage.getItem('ac_ai_count') || '0',
+    'stat-mod': localStorage.getItem('ac_mod_count') || '0',
+    'stat-cert': localStorage.getItem('ac_cert_count') || '0',
+    'stat-triage': localStorage.getItem('ac_triage_count') || '0',
+    'stat-ordo': localStorage.getItem('ac_ordo_count') || '0'
+  };
+  Object.keys(counts).forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = counts[id];
+  });
+
+  const prog = Math.min(parseInt(localStorage.getItem('ac_mod_count') || '0') * 8, 100);
+  const progEl = document.getElementById('dash-prog');
+  const progPct = document.getElementById('dash-prog-pct');
+  if (progEl) progEl.style.width = prog + '%';
+  if (progPct) progPct.textContent = prog + '%';
+}
+
+// ── AI CORE — Google Gemini (gratuit, CORS OK mobile) ──
+async function callAI(messages, systemPrompt) {
+  // Verifier si la cle est configuree
+  if (!GEMINI_KEY || GEMINI_KEY === 'VOTRE_CLE_GEMINI_ICI' || GEMINI_KEY.length < 10) {
+    showKeyModal();
+    throw new Error('Cle API manquante. Configurez votre cle Gemini.');
+  }
+
+  // Construire le prompt pour Gemini
+  var history = messages.map(function(m) {
+    return (m.role === 'user' ? 'Soignant: ' : 'IA: ') + m.content;
+  }).join('\n');
+
+  var fullPrompt = systemPrompt + '\n\n' + history;
+
+  var body = {
+    contents: [{
+      parts: [{ text: fullPrompt }]
+    }],
+    generationConfig: {
+      maxOutputTokens: 1000,
+      temperature: 0.7
+    }
+  };
+
+  var response = await fetch(GEMINI_URL + '?key=' + GEMINI_KEY, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    var err = await response.json().catch(function() { return {}; });
+    var msg = (err.error && err.error.message) || ('Erreur ' + response.status);
+    if (response.status === 400 || response.status === 403) {
+      showKeyModal();
+      throw new Error('Cle API invalide. Verifiez votre cle Gemini.');
+    }
+    throw new Error('Gemini: ' + msg);
+  }
+
+  var data = await response.json();
+  if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+    var parts = data.candidates[0].content.parts;
+    if (parts && parts[0]) return parts[0].text || '';
+  }
+  throw new Error('Reponse Gemini vide. Reessayez.');
+}
+
+// ── MODAL CONFIGURATION CLE API ──
+function showKeyModal() {
+  var existing = document.getElementById('key-modal');
+  if (existing) { existing.style.display = 'flex'; return; }
+
+  var modal = document.createElement('div');
+  modal.id = 'key-modal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem';
+  modal.innerHTML = '<div style="background:#fff;border-radius:20px;padding:2rem;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3)">' +
+    '<div style="font-size:2rem;margin-bottom:0.5rem">🔑</div>' +
+    '<h3 style="color:#006649;margin-bottom:0.5rem">Configurer l\'IA</h3>' +
+    '<p style="color:#5B7D78;font-size:0.9rem;margin-bottom:1rem">Obtenez une cle gratuite sur <strong>aistudio.google.com</strong> (compte Google, 0 FCFA)</p>' +
+    '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:0.75rem;margin-bottom:1rem;font-size:0.82rem;color:#15803d">' +
+    '1. Allez sur <strong>aistudio.google.com/apikey</strong><br>' +
+    '2. Cliquez "Create API Key"<br>' +
+    '3. Copiez la cle (commence par AIza...)<br>' +
+    '4. Collez-la ici et cliquez Enregistrer' +
+    '</div>' +
+    '<input id="gemini-key-input" type="text" placeholder="AIzaSy..." style="width:100%;padding:0.8rem;border:2px solid #e0efec;border-radius:10px;font-size:0.9rem;margin-bottom:0.75rem;box-sizing:border-box">' +
+    '<button onclick="saveGeminiKey()" style="width:100%;background:#006649;color:#fff;border:none;border-radius:10px;padding:0.9rem;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:0.5rem">✅ Enregistrer et activer IA</button>' +
+    '<button onclick="closeKeyModal()" style="width:100%;background:none;border:2px solid #e0efec;border-radius:10px;padding:0.7rem;font-weight:600;color:#5B7D78;cursor:pointer">Fermer</button>' +
+    '</div>';
+  document.body.appendChild(modal);
+}
+
+function closeKeyModal() {
+  var m = document.getElementById('key-modal');
+  if (m) m.style.display = 'none';
+}
+
+function saveGeminiKey() {
+  var input = document.getElementById('gemini-key-input');
+  if (!input) return;
+  var key = input.value.trim();
+  if (!key || key.length < 20) {
+    alert('Cle invalide. Elle doit commencer par AIza...');
+    return;
+  }
+  GEMINI_KEY = key;
+  localStorage.setItem('gemini_key', key);
+  document.getElementById('key-modal').style.display = 'none';
+  showToast('Cle IA enregistree ! Posez votre question.');
+}
+function openAI() {
+  var modal = document.getElementById('ai-modal');
+  if (modal) { modal.style.display = 'flex'; modal.classList.add('open'); }
+  var win = document.getElementById('modal-chat');
+  if (win && win.children.length === 0) {
+    var hasKey = GEMINI_KEY && GEMINI_KEY !== 'VOTRE_CLE_GEMINI_ICI' && GEMINI_KEY.length > 10;
+    if (!hasKey) {
+      var div = document.createElement('div');
+      div.className = 'msg ai';
+      div.innerHTML = "<div class='msg-bubble'><strong>AfriCare IA :</strong> Bonjour ! Pour activer l'IA, configurez votre cle Google gratuite.<br><br><button onclick='showKeyModal()' style='background:#006649;color:#fff;border:none;border-radius:8px;padding:0.6rem 1.2rem;font-weight:700;cursor:pointer'>Configurer IA gratuitement</button></div>";
+      win.appendChild(div);
+    } else {
+      addModalMsg('ai', '<strong>AfriCare IA :</strong> Bonjour ! Je suis votre assistant medical specialise Afrique. Posez votre question.');
+    }
+  }
+  setTimeout(function() {
+    var inp = document.getElementById('modal-inp');
+    if (inp) inp.focus();
+  }, 400);
+}
+function closeAI() {
+  const modal = document.getElementById('ai-modal');
+  if (modal) { modal.style.display = 'none'; modal.classList.remove('open'); }
+}
+
+function addModalMsg(role, html) {
+  const win = document.getElementById('modal-chat');
+  if (!win) return;
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.innerHTML = '<div class="msg-bubble">' + html + '</div>';
+  win.appendChild(div);
+  win.scrollTop = win.scrollHeight;
+}
+
+function showTypingModal() {
+  const win = document.getElementById('modal-chat');
+  if (!win) return;
+  const div = document.createElement('div');
+  div.className = 'msg ai';
+  div.id = 'typing-indicator';
+  div.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  win.appendChild(div);
+  win.scrollTop = win.scrollHeight;
+}
+
+function removeTypingModal() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+function openAIWithQ(q) {
+  openAI();
+  const inp = document.getElementById('modal-inp');
+  if (inp) { inp.value = q; sendModal(); }
+}
+
+function askQ(q) {
+  openAI();
+  const inp = document.getElementById('modal-inp');
+  if (inp) { inp.value = q; sendModal(); }
+}
+
+async function sendModal() {
+  const inp = document.getElementById('modal-inp');
+  if (!inp) return;
+  const q = inp.value.trim();
+  if (!q) return;
+
+  addModalMsg('user', q);
+  modalHistory.push({ role: 'user', content: q });
+  inp.value = '';
+
+  const sendBtn = document.getElementById('modal-send');
+  if (sendBtn) { sendBtn.disabled = true; sendBtn.textContent = '...'; }
+  showTypingModal();
+
+  try {
+    const reply = await callAI(modalHistory, SYS_MEDICAL);
+    removeTypingModal();
+    addModalMsg('ai', formatAI(reply));
+    modalHistory.push({ role: 'assistant', content: reply });
+    const cnt = parseInt(localStorage.getItem('ac_ai_count') || '0') + 1;
+    localStorage.setItem('ac_ai_count', String(cnt));
+    const el = document.getElementById('stat-ai');
+    if (el) el.textContent = cnt;
+  } catch (e) {
+    removeTypingModal();
+    addModalMsg('ai', 'Erreur connexion. Verifiez internet et reessayez. Detail : ' + e.message);
+    console.error('AI Error:', e);
+  }
+
+  if (sendBtn) { sendBtn.disabled = false; sendBtn.textContent = '↗'; }
+}
+
+// ── DASH MINI AI ──
+async function sendDashAI() {
+  const inp = document.getElementById('dash-ai-inp');
+  if (!inp) return;
+  const q = inp.value.trim();
+  if (!q) return;
+  const win = document.getElementById('dash-ai-chat');
+  if (!win) return;
+
+  win.innerHTML += '<div style="text-align:right;margin-top:0.4rem"><span style="background:var(--green);color:#fff;border-radius:8px;padding:0.3rem 0.6rem;font-size:0.78rem">' + q + '</span></div>';
+  inp.value = '';
+
+  const loader = document.createElement('div');
+  loader.style.cssText = 'color:var(--muted);font-size:0.75rem;margin-top:0.3rem';
+  loader.textContent = 'IA reflechit...';
+  win.appendChild(loader);
+  win.scrollTop = win.scrollHeight;
+
+  try {
+    const reply = await callAI([{ role: 'user', content: q }], SYS_MEDICAL);
+    loader.remove();
+    const preview = reply.length > 200 ? reply.substring(0, 200) + '...' : reply;
+    win.innerHTML += '<div style="margin-top:0.4rem;background:var(--green-pale);border-radius:8px;padding:0.4rem 0.6rem"><strong style="color:var(--green);font-size:0.78rem">IA :</strong> <span style="font-size:0.82rem">' + preview + '</span><br><button onclick="openAI()" style="background:none;border:none;color:var(--green);font-size:0.72rem;cursor:pointer;font-weight:600">Voir plus</button></div>';
+    win.scrollTop = win.scrollHeight;
+    const cnt = parseInt(localStorage.getItem('ac_ai_count') || '0') + 1;
+    localStorage.setItem('ac_ai_count', String(cnt));
+    const el = document.getElementById('stat-ai');
+    if (el) el.textContent = cnt;
+  } catch (e) {
+    loader.remove();
+    win.innerHTML += '<div style="color:var(--red);font-size:0.78rem;margin-top:0.3rem">Erreur connexion.</div>';
+  }
+}
+
+// ── TRIAGE ──
+function selectSev(n) {
+  selectedSev = n;
+  document.querySelectorAll('.sev-opt').forEach(function(e) { e.classList.remove('selected'); });
+  const sel = document.getElementById('sev-' + n);
+  if (sel) sel.classList.add('selected');
+}
+
+async function doTriage() {
+  const age = document.getElementById('t-age').value;
+  const sex = document.getElementById('t-sex').value;
+  const region = document.getElementById('t-region').value;
+  const temp = document.getElementById('t-temp').value;
+  const symptoms = document.getElementById('t-symptoms').value.trim();
+  const ant = document.getElementById('t-antecedents').value.trim();
+
+  if (!symptoms) { showToast('Decrivez les symptomes du patient'); return; }
+
+  const trBtn = document.getElementById('triage-btn');
+  if (trBtn) { trBtn.disabled = true; trBtn.textContent = 'Analyse en cours...'; }
+
+  const result = document.getElementById('triage-result');
+  if (result) {
+    result.className = 'triage-result show';
+    document.getElementById('result-title').textContent = 'Analyse IA en cours...';
+    document.getElementById('result-badge-wrap').innerHTML = '';
+    document.getElementById('result-content').innerHTML = '<div style="color:var(--muted);padding:1rem 0">Consultation protocoles OMS Afrique...</div>';
+    document.getElementById('result-source').textContent = '';
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const sevLabel = selectedSev === 1 ? 'VITALE' : selectedSev === 2 ? 'SEMI-URGENT' : 'NON URGENT';
+  const prompt = 'Patient : ' + (age || 'age inconnu') + ' ans, ' + (sex || '') + ', ' + (region || '') + (temp ? ', Temp: ' + temp + 'C' : '') + '. Symptomes : ' + symptoms + (ant ? '. Antecedents : ' + ant : '') + '. Urgence percue : ' + sevLabel + '. Reponds UNIQUEMENT en JSON strict sans texte supplementaire.';
+
+  try {
+    const reply = await callAI([{ role: 'user', content: prompt }], SYS_TRIAGE);
+    const clean = reply.replace(/```json/g, '').replace(/```/g, '').trim();
+    const data = JSON.parse(clean);
+
+    const urgColors = { VITALE: 'urgency-vitale', SEMI: 'urgency-semi', NON: 'urgency-normale' };
+    const urgLabels = { VITALE: 'URGENCE VITALE', SEMI: 'SEMI-URGENT', NON: 'NON URGENT' };
+    const urg = data.urgence || 'NON';
+
+    document.getElementById('result-title').textContent = data.titre || 'Analyse complete';
+    document.getElementById('result-badge-wrap').innerHTML = '<span class="urgency-pill ' + (urgColors[urg] || 'urgency-normale') + '">' + (urgLabels[urg] || urg) + '</span>';
+
+    let html = '<div class="ai-result-card">';
+    if (data.hypotheses && data.hypotheses.length) {
+      html += '<div class="result-section-title">Hypotheses diagnostiques</div><ul class="result-list">';
+      data.hypotheses.forEach(function(h) { html += '<li>' + h + '</li>'; });
+      html += '</ul>';
+    }
+    if (data.examens && data.examens.length) {
+      html += '<div class="result-section-title">Examens recommandes</div><ul class="result-list">';
+      data.examens.forEach(function(e) { html += '<li>' + e + '</li>'; });
+      html += '</ul>';
+    }
+    if (data.conduite && data.conduite.length) {
+      html += '<div class="result-section-title">Conduite a tenir</div><ul class="result-list">';
+      data.conduite.forEach(function(c) { html += '<li>' + c + '</li>'; });
+      html += '</ul>';
+    }
+    if (data.alarmes && data.alarmes.length) {
+      html += '<div class="result-section-title">Signes alarme</div><ul class="result-list">';
+      data.alarmes.forEach(function(a) { html += '<li>' + a + '</li>'; });
+      html += '</ul>';
+    }
+    html += '</div>';
+
+    document.getElementById('result-content').innerHTML = html;
+    document.getElementById('result-source').textContent = 'Source : ' + (data.source || 'Protocoles OMS Afrique');
+
+    const cnt = parseInt(localStorage.getItem('ac_triage_count') || '0') + 1;
+    localStorage.setItem('ac_triage_count', String(cnt));
+    const el = document.getElementById('stat-triage');
+    if (el) el.textContent = cnt;
+    showToast('Triage IA complete !');
+
+  } catch (e) {
+    console.error('Triage error:', e);
+    document.getElementById('result-title').textContent = 'Erreur analyse';
+    document.getElementById('result-content').innerHTML = '<div style="background:#fef2f2;border:2px solid var(--red);border-radius:12px;padding:1rem"><strong style="color:var(--red)">Erreur connexion IA</strong><br><small>Verifiez internet et reessayez.</small><br><br><button class="btn btn-secondary btn-sm" onclick="openAI()">Ouvrir chat IA</button></div>';
+  }
+
+  if (trBtn) { trBtn.disabled = false; trBtn.textContent = 'Analyser de nouveau'; }
+}
+
+function clearTriage() {
+  ['t-age', 't-temp', 't-symptoms', 't-antecedents'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  const result = document.getElementById('triage-result');
+  if (result) result.className = 'triage-result';
+}
+
+// ── ORDONNANCE ──
+async function genOrdo() {
+  const diag = document.getElementById('o-diag').value.trim();
+  const meds = document.getElementById('o-meds').value.trim();
+
+  if (!diag || !meds) {
+    showToast('Remplissez le diagnostic et les medicaments');
+    return;
+  }
+
+  const ordoBtn = document.getElementById('ordo-btn');
+  if (ordoBtn) { ordoBtn.disabled = true; ordoBtn.textContent = 'Generation...'; }
+  showToast('Generation de l ordonnance...');
+
+  const poids = document.getElementById('o-poids').value;
+  const pfn = document.getElementById('o-pfn').value;
+  const pln = document.getElementById('o-pln').value;
+  const page = document.getElementById('o-page').value;
+  const pays = document.getElementById('o-pays').value;
+
+  const prompt = 'Diagnostic : ' + diag + '. Patient : ' + pfn + ' ' + pln + ', ' + page + (poids ? ', ' + poids + ' kg' : '') + ', pays : ' + pays + '. Medicaments demandes : ' + meds + '. JSON strict uniquement.';
+
+  try {
+    const reply = await callAI([{ role: 'user', content: prompt }], SYS_ORDO);
+    const clean = reply.replace(/```json/g, '').replace(/```/g, '').trim();
+    let data = null;
+    try { data = JSON.parse(clean); } catch (e2) { data = null; }
+
+    const ref = 'ACS-ORD-' + Date.now().toString(36).toUpperCase();
+    const now = new Date();
+
+    const refEl = document.getElementById('ordo-ref');
+    if (refEl) refEl.textContent = ref;
+
+    const docInfo = document.getElementById('ordo-doc-info');
+    if (docInfo) {
+      docInfo.innerHTML =
+        (document.getElementById('o-doc').value || '') + '<br>' +
+        (document.getElementById('o-qual').value || '') + '<br>' +
+        (document.getElementById('o-struct').value || '') + '<br>' +
+        now.toLocaleDateString('fr-FR');
+    }
+
+    const patBox = document.getElementById('ordo-patient-box');
+    if (patBox) {
+      patBox.innerHTML = '<strong>Patient :</strong> ' + pfn + ' ' + pln + ' | <strong>Age :</strong> ' + page + (poids ? ' | <strong>Poids :</strong> ' + poids + ' kg' : '') + '<br><strong>Diagnostic :</strong> ' + diag;
+    }
+
+    let rxHtml = '<div class="ordo-rx"><h4>Rp. Prescription</h4>';
+    if (data && data.medicaments) {
+      data.medicaments.forEach(function(m, i) {
+        rxHtml += '<div class="rx-item"><div class="rx-num">N' + (i + 1) + '</div><div class="rx-med">' + m.nom + ' ' + (m.forme || '') + '</div><div class="rx-dose">Posologie : ' + m.posologie + '</div><div class="rx-dur">Duree : ' + m.duree + (m.note ? ' - ' + m.note : '') + '</div></div>';
+      });
+      if (data.conseils && data.conseils.length) {
+        rxHtml += '<div style="margin-top:1rem;padding:0.75rem;background:var(--green-pale);border-radius:10px;font-size:0.85rem"><strong>Conseils :</strong><ul style="padding-left:1.2rem;margin-top:0.3rem">';
+        data.conseils.forEach(function(c) { rxHtml += '<li>' + c + '</li>'; });
+        rxHtml += '</ul></div>';
+      }
+    } else {
+      rxHtml += '<div style="white-space:pre-wrap;font-size:0.9rem">' + meds + '</div>';
+    }
+    rxHtml += '</div>';
+
+    const rxContent = document.getElementById('ordo-rx-content');
+    if (rxContent) rxContent.innerHTML = rxHtml;
+
+    const preview = document.getElementById('ordo-preview');
+    if (preview) {
+      preview.className = 'ordo-preview show';
+      preview.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const cnt = parseInt(localStorage.getItem('ac_ordo_count') || '0') + 1;
+    localStorage.setItem('ac_ordo_count', String(cnt));
+    const el = document.getElementById('stat-ordo');
+    if (el) el.textContent = cnt;
+    showToast('Ordonnance generee !');
+
+  } catch (e) {
+    console.error('Ordo error:', e);
+    showToast('Erreur IA. Verifiez connexion et reessayez.');
+  }
+
+  if (ordoBtn) { ordoBtn.disabled = false; ordoBtn.textContent = 'Generer ordonnance'; }
+}
+
+// ── QUIZ ──
+const quizAnswers = { q1: 'b', q2: 'b', q3: 'b', q4: 'b' };
+
+function updateQuizProg() {
+  const answered = document.querySelectorAll('input[type=radio]:checked').length;
+  const prog = document.getElementById('quiz-prog');
+  if (prog) prog.style.width = (answered / 4 * 100) + '%';
+}
+
+function submitQuiz() {
+  const qNames = ['q1', 'q2', 'q3', 'q4'];
+  const answers = {};
+  let allAnswered = true;
+
+  qNames.forEach(function(q) {
+    const r = document.querySelector('input[name="' + q + '"]:checked');
+    answers[q] = r ? r.value : null;
+    if (!r) allAnswered = false;
+  });
+
+  if (!allAnswered) { showToast('Repondez a toutes les questions'); return; }
+
+  let score = 0;
+  qNames.forEach(function(q) { if (answers[q] === quizAnswers[q]) score++; });
+  const pct = Math.round(score / 4 * 100);
+
+  const fn = localStorage.getItem('ac_fn') || 'Membre';
+  const ln = localStorage.getItem('ac_ln') || '';
+
+  if (pct >= 75) {
+    generateCert(fn + ' ' + ln, 'Sante Maternelle', pct);
+    localStorage.setItem('ac_cert_count', String(parseInt(localStorage.getItem('ac_cert_count') || '0') + 1));
+    localStorage.setItem('ac_mod_count', String(parseInt(localStorage.getItem('ac_mod_count') || '0') + 1));
+    showToast('Score : ' + pct + '% - Felicitations ! Certificat genere !');
+    setTimeout(function() { show('cert'); }, 1000);
+  } else {
+    showToast('Score : ' + pct + '%. Minimum 75% requis. Reessayez !');
+  }
+}
+
+function generateCert(name, module, score) {
+  const now = new Date();
+  const ref = 'ACS-' + now.getFullYear() + '-' + Date.now().toString(36).toUpperCase();
+  const els = {
+    'cert-name': name,
+    'cert-module': module,
+    'cert-score': 'Score : ' + score + ' / 100',
+    'cert-date': now.toLocaleDateString('fr-FR'),
+    'cert-ref': ref
+  };
+  Object.keys(els).forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = els[id];
+  });
+  const qrGrid = document.getElementById('qr-grid');
+  if (qrGrid) {
+    qrGrid.innerHTML = '';
+    for (let i = 0; i < 25; i++) {
+      const cell = document.createElement('span');
+      cell.style.background = Math.random() > 0.45 ? '#ffffff' : 'transparent';
+      qrGrid.appendChild(cell);
+    }
+  }
+}
+
+function printCert() { window.print(); }
+
+// ── TELEMEDICINE ──
+async function sendTele() {
+  const inp = document.getElementById('tele-inp');
+  if (!inp) return;
+  const q = inp.value.trim();
+  if (!q) return;
+  const win = document.getElementById('tele-chat-win');
+  if (!win) return;
+
+  win.innerHTML += '<div class="msg user"><div class="msg-bubble">' + q + '</div></div>';
+  teleHistory.push({ role: 'user', content: q });
+  inp.value = '';
+
+  const typDiv = document.createElement('div');
+  typDiv.className = 'msg ai';
+  typDiv.id = 'tele-typing';
+  typDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  win.appendChild(typDiv);
+  win.scrollTop = win.scrollHeight;
+
+  try {
+    const reply = await callAI(teleHistory, SYS_SBAR);
+    const typer = document.getElementById('tele-typing');
+    if (typer) typer.remove();
+    win.innerHTML += '<div class="msg ai"><div class="msg-bubble"><strong>SBAR :</strong> ' + formatAI(reply) + '</div></div>';
+    teleHistory.push({ role: 'assistant', content: reply });
+    win.scrollTop = win.scrollHeight;
+  } catch (e) {
+    const typer = document.getElementById('tele-typing');
+    if (typer) typer.remove();
+    win.innerHTML += '<div class="msg ai"><div class="msg-bubble" style="color:var(--red)">Erreur connexion. Reessayez.</div></div>';
+    win.scrollTop = win.scrollHeight;
+  }
+}
+
+// ── BLOG ──
+const ARTICLES_DATA = [
+  { id: 1, title: 'Hemorragie post-partum : protocole OMS', cat: 'Fiche medicale', catClass: 'fiche', author: 'Equipe AfriCare', date: '15 Jan 2025', read: '8 min', emoji: '🩸', excerpt: 'Protocole complet OMS pour la gestion du HPP : medicaments, doses, conduite a tenir.', content: '<p>L hemorragie du post-partum reste la 1ere cause de mortalite maternelle en Afrique.</p><h3>Traitement 1ere ligne</h3><ul><li><strong>Ocytocine 10 UI IM</strong> : immediatement apres delivrance</li><li><strong>Misoprostol 800 mcg sublingual</strong> : si ocytocine non disponible</li><li><strong>Acide tranexamique 1g IV</strong> : dans les 3 heures</li></ul><div class="highlight">Source : OMS 2023</div>' },
+  { id: 2, title: 'Paludisme severe : artesunate IV OMS 2023', cat: 'Fiche medicale', catClass: 'fiche', author: 'Equipe AfriCare', date: '2 Avr 2025', read: '7 min', emoji: '🦟', excerpt: 'Protocole de traitement du paludisme severe a P. falciparum selon OMS.', content: '<p>Le paludisme severe est une urgence. Mortalite sans traitement superieure a 25%.</p><h3>Criteres OMS</h3><ul><li>Prostration ou coma</li><li>Convulsions repetees</li><li>Anemie severe Hb moins de 7 g/dL</li></ul><h3>Traitement : Artesunate IV</h3><ul><li>2.4 mg/kg IV a H0, H12, H24</li><li>Adulte 60 kg : 144 mg par injection</li></ul>' },
+  { id: 3, title: 'Telemedecine au Cameroun : cadre juridique', cat: 'Actualite sante', catClass: 'actu', author: 'Abel Goudkoye', date: '22 Fev 2025', read: '6 min', emoji: '📱', excerpt: 'Le Cameroun officialise la telemedecine. Impacts pour les soignants de l Extreme-Nord.', content: '<p>La loi camerounaise sur la sante numerique ouvre de nouvelles perspectives. La loi 2010-013 encadre la pratique de la telemedecine au Cameroun.</p><div class="highlight">AfriCare Sante est pleinement conforme au cadre legal camerounais.</div>' },
+  { id: 4, title: 'Jean-Paul : l IA m a aide a sauver une vie', cat: 'Temoignage', catClass: 'temoignage', author: 'Jean-Paul T.', date: '18 Mar 2025', read: '4 min', emoji: '🙏', excerpt: 'Infirmier a Maroua-Rural, Jean-Paul raconte comment l IA a identifie un paludisme severe en 2 minutes.', content: '<p>Jean-Paul Tamghe est infirmier au CS de Maroua-Rural depuis 7 ans.</p><p>Un soir de garde, un enfant de 3 ans arrive fievreux. Le triage IA AfriCare a identifie les criteres OMS de paludisme grave en 2 minutes.</p><div class="highlight">AfriCare IA a renforce ma decision clinique avec des donnees precises.</div>' },
+  { id: 5, title: 'Pourquoi j ai fonde AfriCare Sante a Maroua', cat: 'Article Abel', catClass: 'abel', author: 'Abel Goudkoye', date: '1 Mai 2025', read: '5 min', emoji: '🌍', excerpt: 'Abel partage sa vision : creer la premiere plateforme IA medicale africaine depuis Maroua.', content: '<p>Apres 8 ans dans les centres de sante de l Extreme-Nord camerounais, j ai voulu donner aux soignants africains les memes outils que leurs collegues du Nord.</p><div class="highlight">La sante africaine merite une technologie africaine. - Abel Goudkoye</div>' },
+  { id: 6, title: 'Diabete sans insuline : alternatives zone rurale', cat: 'Conseil soignants', catClass: 'conseil', author: 'Equipe Clinique', date: '5 Mar 2025', read: '10 min', emoji: '💉', excerpt: 'Protocoles alternatifs valides pour la prise en charge du diabete en ressources limitees.', content: '<p>En zone rurale africaine, l insuline est souvent indisponible. Alternatives OMS validees :</p><ul><li><strong>Metformine 500-1000mg/j</strong> : 1ere intention</li><li><strong>Glibenclamide 5mg/j</strong> : si intolerance metformine</li><li>Regime alimentaire strict</li></ul>' }
+];
+
+articles = ARTICLES_DATA.slice();
+
+const CAT_LABELS = { fiche: 'Fiche medicale', actu: 'Actualite sante', conseil: 'Conseil soignants', temoignage: 'Temoignage', abel: 'Article Abel' };
+let currentCat = 'all';
+
+function bannerBg(cat) {
+  const bgs = { fiche: 'linear-gradient(135deg,#dcfce7,#bbf7d0)', actu: 'linear-gradient(135deg,#dbeafe,#bfdbfe)', conseil: 'linear-gradient(135deg,#fef3c7,#fde68a)', temoignage: 'linear-gradient(135deg,#f3e8ff,#e9d5ff)', abel: 'linear-gradient(135deg,#ffe4e6,#fecdd3)' };
+  return bgs[cat] || 'linear-gradient(135deg,#f0fdf4,#dcfce7)';
+}
+
+function renderArticles() {
+  const searchEl = document.getElementById('blog-search');
+  const search = searchEl ? searchEl.value.toLowerCase() : '';
+  const filtered = articles.filter(function(a) {
+    const matchCat = currentCat === 'all' || a.catClass === currentCat;
+    const matchSearch = !search || a.title.toLowerCase().indexOf(search) >= 0 || a.excerpt.toLowerCase().indexOf(search) >= 0;
+    return matchCat && matchSearch;
+  });
+
+  const grid = document.getElementById('article-grid');
+  if (!grid) return;
+
+  grid.innerHTML = filtered.map(function(a) {
+    return '<div class="article-card" onclick="openArticle(' + a.id + ')">' +
+      '<div class="article-banner" style="background:' + bannerBg(a.catClass) + '">' + a.emoji + '</div>' +
+      '<div class="article-body">' +
+      '<div class="article-cat">' + a.cat + '</div>' +
+      '<h3>' + a.title + '</h3>' +
+      '<p>' + a.excerpt + '</p>' +
+      '<div class="article-meta"><span>' + a.author + '</span><span>' + a.date + '</span><span>' + a.read + '</span></div>' +
+      '</div></div>';
+  }).join('');
+
+  const catList = document.getElementById('cat-list');
+  if (catList) {
+    const cats = ['all'];
+    const seen = {};
+    articles.forEach(function(a) { if (!seen[a.catClass]) { cats.push(a.catClass); seen[a.catClass] = true; } });
+    catList.innerHTML = cats.map(function(c) {
+      const count = c === 'all' ? articles.length : articles.filter(function(a) { return a.catClass === c; }).length;
+      const label = c === 'all' ? 'Tous les articles' : (CAT_LABELS[c] || c);
+      return '<div class="cat-row' + (currentCat === c ? ' active' : '') + '" onclick="filterCat(\'' + c + '\')">' + label + '<span class="cat-count">' + count + '</span></div>';
+    }).join('');
+  }
+}
+
+function filterCat(cat) { currentCat = cat; renderArticles(); }
+function filterArticles() { renderArticles(); }
+
+function openArticle(id) {
+  const a = articles.find(function(x) { return x.id === id; });
+  if (!a) return;
+  currentArtId = id;
+  const banner = document.getElementById('art-banner');
+  if (banner) { banner.style.background = bannerBg(a.catClass); banner.textContent = a.emoji; }
+  const catEl = document.getElementById('art-cat');
+  if (catEl) catEl.textContent = a.cat;
+  const titleEl = document.getElementById('art-title');
+  if (titleEl) titleEl.textContent = a.title;
+  const metaEl = document.getElementById('art-meta');
+  if (metaEl) metaEl.innerHTML = '<span>' + a.author + '</span><span>' + a.date + '</span><span>' + a.read + '</span>';
+  const contentEl = document.getElementById('art-content');
+  if (contentEl) contentEl.innerHTML = a.content;
+  const modal = document.getElementById('article-modal');
+  if (modal) modal.classList.add('open');
+}
+
+function closeArticle() {
+  const modal = document.getElementById('article-modal');
+  if (modal) modal.classList.remove('open');
+}
+
+function shareWA() {
+  const a = articles.find(function(x) { return x.id === currentArtId; });
+  const title = a ? a.title : 'Article AfriCare Sante';
+  window.open('https://wa.me/?text=' + encodeURIComponent('Lisez : ' + title + ' - africaresante.netlify.app'), '_blank');
+}
+
+function copyLink() {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText('africaresante.netlify.app').then(function() { showToast('Lien copie !'); });
+  } else {
+    showToast('Lien : africaresante.netlify.app');
+  }
+}
+
+// ── ADMIN ──
+function openAdmin() {
+  const panel = document.getElementById('admin-panel');
+  if (panel) panel.classList.add('open');
+}
+
+function closeAdmin() {
+  const panel = document.getElementById('admin-panel');
+  if (panel) panel.classList.remove('open');
+}
+
+function publishArticle() {
+  const title = document.getElementById('a-title').value.trim();
+  const excerpt = document.getElementById('a-excerpt').value.trim();
+  const content = document.getElementById('a-content').value.trim();
+  if (!title || !excerpt || !content) { showToast('Remplissez tous les champs'); return; }
+  const catEl = document.getElementById('a-cat');
+  const cat = catEl ? catEl.value : 'fiche';
+  const readEl = document.getElementById('a-read');
+  const read = readEl ? (readEl.value || '5 min') : '5 min';
+  const emojis = { fiche: '📋', actu: '📰', conseil: '💡', temoignage: '🙏', abel: '🌍' };
+  articles.unshift({
+    id: nextArtId++,
+    title: title,
+    cat: CAT_LABELS[cat] || cat,
+    catClass: cat,
+    author: 'Admin',
+    date: new Date().toLocaleDateString('fr-FR'),
+    read: read,
+    emoji: emojis[cat] || '📝',
+    excerpt: excerpt,
+    content: '<p>' + content.replace(/\n\n/g, '</p><p>') + '</p>'
+  });
+  closeAdmin();
+  showToast('Article publie !');
+  renderArticles();
+}
+
+// ── FAQ ──
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── CONTACT ──
+function submitContact() {
+  const email = document.getElementById('c-email').value.trim();
+  const msg = document.getElementById('c-msg').value.trim();
+  const subj = document.getElementById('c-subj').value;
+  if (!email || !msg || !subj) { showToast('Remplissez les champs obligatoires'); return; }
+  showToast('Message envoye ! Reponse sous 24h.');
+  const msgEl = document.getElementById('c-msg');
+  if (msgEl) msgEl.value = '';
+}
+
+// ── COUNTERS ──
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(function(el) {
+    const target = parseInt(el.getAttribute('data-count'));
+    let step = 0;
+    const steps = 50;
+    const timer = setInterval(function() {
+      step++;
+      el.textContent = Math.floor(target * step / steps) + '+';
+      if (step >= steps) { clearInterval(timer); el.textContent = target + '+'; }
+    }, 30);
+  });
+}
+
+// ── INIT ──
+(function init() {
+  // Charger la cle Gemini sauvegardee
+  var savedKey = localStorage.getItem('gemini_key');
+  if (savedKey && savedKey.length > 20) {
+    GEMINI_KEY = savedKey;
+    console.log('Cle Gemini chargee depuis localStorage');
+  }
+  renderArticles();
+  updateDash();
+  selectSev(2);
+
+  const chatWin = document.getElementById('modal-chat');
+  if (chatWin) {
+    chatWin.innerHTML = '<div class="msg ai"><div class="msg-bubble"><strong>AfriCare IA :</strong> Bonjour ! Je suis votre assistant medical specialise Afrique. Posez votre question medicale.</div></div>';
+  }
+
+  setTimeout(animateCounters, 500);
+
+  if (localStorage.getItem('ac_email') && localStorage.getItem('ac_fn')) {
+    updateNavForLoggedUser();
+  }
+
+  const aiModal = document.getElementById('ai-modal');
+  if (aiModal) { aiModal.addEventListener('click', function(e) { if (e.target === aiModal) closeAI(); }); }
+
+  const artModal = document.getElementById('article-modal');
+  if (artModal) { artModal.addEventListener('click', function(e) { if (e.target === artModal) closeArticle(); }); }
+
+  const adminPanel = document.getElementById('admin-panel');
+  if (adminPanel) { adminPanel.addEventListener('click', function(e) { if (e.target === adminPanel) closeAdmin(); }); }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeAI(); closeArticle(); closeAdmin(); }
+  });
+
+  document.querySelectorAll('input[type=radio]').forEach(function(r) {
+    r.addEventListener('change', updateQuizProg);
+  });
+
+  document.addEventListener('input', function(e) {
+    if (e.target && e.target.classList.contains('chat-input')) {
+      e.target.style.height = 'auto';
+      e.target.style.height = Math.min(e.target.scrollHeight, 120) + 'px';
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    const mn = document.getElementById('mobile-nav');
+    const hb = document.getElementById('hamburger');
+    if (mn && mn.style.display !== 'none' && !mn.contains(e.target) && e.target !== hb) {
+      closeMobileNav();
+    }
+  });
+})();
+
+</script>
+</body>
+</html>
